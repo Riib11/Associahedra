@@ -22,6 +22,7 @@ class Triangulation:
         assert ( polygon.is_valid_triangulation(ds) )
 
         self.N = N
+        self.V = N + 2
         self.ds = sorted(ds, key=get_divide_index)
         self.polygon = polygon
         self.coxeter_graph = coxeter_graph
@@ -75,40 +76,62 @@ class Triangulation:
     def get_embedded_point(self):
         return [ self.x(i) for i in inrange(1, self.N) ]
 
-    # self has exactly all but
-    # exactly 1 Divide in common with other
+    # self and other have exactly
+    # i Divides in common
     def is_i_linked(self, other, i):
         assert ( isinstance(other, Triangulation) )
-        count_different = len([ d for d in self.ds if not d in other.ds ])
-        return count_different == i
+        return i == len([d for d in self.ds in d in other.ds])
 
 
 #
 ### Triangulations Graph
 #
 # + Creates a network of Triangulations,
-#   where two triangulations are linked if
-#   they share all but 1 Divide in common
+#   where links represents i-links
 #
 class TriangulationGraph:
 
-    def __init__(self, ts):
+    def __init__(self, N, ts):
         assert ( all([isinstance(t, Triangulation)
             for t in ts ]) )
 
+        self.N = N
+        self.V = N + 2
         self.ts = ts
-        # create 1-linked graph
-        self.links = [ (t1, t2)
-            for t1, t2 in it.combinations(self.ts, 2)
-            if t1.is_i_linked(t2, 1) ]
 
     # get all of the triangulations that
     # have all of ds divides
     def get_triangulations_with_divides(self, ds):
         return [ t for t in self.ts
             if t.has_divides(ds) ]
+
+    # get list of groups of triangulations,
+    # where each group is of triangulations
+    # is such that each member is i-linked
+    # with every other member.
+    # each group is a i-dimensional facet of K
+    def get_i_partitions(self, i):
+        ds_all = [] # [Divide]
+        for t in self.ts:
+            for d in t.ds:
+                if not d in ds_all: ds_all.append(d)
+
+        ds_all = [ Divide(v1, v2) for v1, v2 in
+            it.combinations(inrange(0, self.V - 1), 2) ]
+
+        # iterate through all i-sized combinations
+        # in ds_all, each which represent a segement of
+        # the parition of the triangulations
+        tri_partition = list(filter(lambda ts: ts != [],
+            [ self.get_triangulations_with_divides(ds)
+            for ds in it.combinations(ds_all, i) ]))
+
+
+
+        return tri_partition
+
     
-    # gets an ordered cycle of
+    # get an ordered cycle of
     # the embedded points of K-3
     # (for K-3, the embedded shape will
     # be a 2D pentagon embedded in 3D)

@@ -1,4 +1,4 @@
-column_widths = [20, 50]
+column_widths = [20, 70]
 column_buffer_string = "  "
 
 def get_column_width(col_i):
