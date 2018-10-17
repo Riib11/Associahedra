@@ -57,9 +57,14 @@ Define `w i`, the weight a label, to be
     w : [n] -> N
     w i = (p_L i) * (p_R i)
 
-Define `x i`, the scalar corresponding to a label, to be
+Define `x i`, the i-component of the
+embedded point in `R^(n+1)` corresponding to `T`,
+to be
 
     x : [n] -> R^(n+1)
     x i =
         | i in D => (w i)
         | i in U => n + 1 - (w i)
+
+`x = (x_1, x_2, ..., x_(n+1)` is the
+embedded point in `R^(n+1)` corresponding to `T`.

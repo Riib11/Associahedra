@@ -1,3 +1,15 @@
+"""
++==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
+|  ~>>               Polygon               <<~  |
++==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
+
+
+"""
+
+from utilities import *
+from debug import *
+import itertools as it
+
 from Divide import Divide
 from Triangulation import Triangulation
 
@@ -81,9 +93,9 @@ class Polygon:
             or d_new.is_contained_in_vertices(side2))
         distinct = d != d_new
 
-        if non_intersecting and distinct and d == Divide(1,4) and d_new == Divide(0,3):
-            debug.log("valid divide", str(d)+", "+str(d_new))
-            debug.log("sides", str(side1)+", "+str(side2))
+        # if non_intersecting and distinct and d == Divide(1,4) and d_new == Divide(0,3):
+        #     log("valid divide", str(d)+", "+str(d_new))
+        #     log("sides", str(side1)+", "+str(side2))
 
         return non_intersecting and distinct
 
@@ -109,7 +121,7 @@ class Polygon:
             for d1, d2 in it.combinations(inrange(0, self.V - 1), 2)
             if not self.is_on_perimeter(Divide(d1, d2)) ]
 
-        debug.log("all_divides", all_divides)
+        # log("all_divides", all_divides)
 
         # proto-triangulations
         prototris = [ [d] for d in all_divides ]
@@ -122,7 +134,7 @@ class Polygon:
                         prototris_new.append(tri_new)
             prototris = prototris_new
 
-        debug.log("prototris:", prototris)
+        # log("prototris:", prototris)
 
         # convert to Triangulation type
         # and remove duplicates

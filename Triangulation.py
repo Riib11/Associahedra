@@ -1,3 +1,17 @@
+"""
++==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
+|  ~>>            Triangulation            <<~  |
++==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
+
+
+"""
+
+from utilities import *
+from debug import *
+import itertools as it
+
+from Divide import Divide
+
 #
 ### Triangulation
 #
@@ -16,13 +30,18 @@ class Triangulation:
     __str__ = tostring
     __repr__ = tostring
 
-    def issubset(self, other):
-        assert ( isinstance(other, Triangulation) )
-        return all([ d in other.ds for d in self.ds ])
+    # this triangulation has all of
+    # divides ds
+    def has_divides(self, ds):
+        assert ( all([isinstance(d, Divide) for d in ds]) )
+        return all([ d in self.ds for d in ds ])
 
+    # both triangulations have the
+    # exact same sets of divides
     def __eq__(self, other):
         assert ( isinstance(other, Triangulation) )
-        return (self.issubset(other)) and (other.issubset(self))
+        return ((self.has_divides(other.ds)) 
+            and (other.has_divides(self.ds)))
 
     def mu(self, i, j):
         if   i >  j: return i - j
@@ -51,5 +70,78 @@ class Triangulation:
         else:
             return self.N + 1 - self.w(i)
 
+    # gets the embedded point in R^(N+1)
+    # corresponding to this triangulation
     def get_embedded_point(self):
         return [ self.x(i) for i in inrange(1, self.N) ]
+
+    # self has exactly all but
+    # exactly 1 Divide in common with other
+    def is_i_linked(self, other, i):
+        assert ( isinstance(other, Triangulation) )
+        count_different = len([ d for d in self.ds if not d in other.ds ])
+        return count_different == i
+
+
+#
+### Triangulations Graph
+#
+# + Creates a network of Triangulations,
+#   where two triangulations are linked if
+#   they share all but 1 Divide in common
+#
+class TriangulationGraph:
+
+    def __init__(self, ts):
+        assert ( all([isinstance(t, Triangulation)
+            for t in ts ]) )
+
+        self.ts = ts
+        # create 1-linked graph
+        self.links = [ (t1, t2)
+            for t1, t2 in it.combinations(self.ts, 2)
+            if t1.is_i_linked(t2, 1) ]
+
+    # get all of the triangulations that
+    # have all of ds divides
+    def get_triangulations_with_divides(self, ds):
+        return [ t for t in self.ts
+            if t.has_divides(ds) ]
+    
+    # gets an ordered cycle of
+    # the embedded points of K-3
+    # (for K-3, the embedded shape will
+    # be a 2D pentagon embedded in 3D)
+    def get_triangulations_ordered_2D(self):
+        assert ( self.ts[0].N == 3 ) # only for K-3
+
+        ts = self.ts[:]
+        cycle = []
+
+        # get the first triangulation
+        # that is 1-linked with t
+        def get_next(t):
+            for t_next in ts:
+                if t.is_i_linked(t_next, 1):
+                    return t_next
+
+        while len(ts) > 0:
+
+            # pick a start
+            if len(cycle) == 0:
+                cycle.append(ts[0])
+                ts.remove(ts[0])
+            # pick a triangulation that
+            # is 1-linked with the
+            # triangulation just added
+            else:
+                t_next = get_next(cycle[-1])
+                cycle.append(t_next)
+                ts.remove(t_next)
+
+        return cycle
+
+
+
+
+

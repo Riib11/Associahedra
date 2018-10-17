@@ -1,3 +1,15 @@
+"""
++==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
+|  ~>>               Divide                <<~  |
++==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
+
+
+"""
+
+from utilities import *
+from debug import *
+import itertools as it
+
 #
 ### Divide
 #
@@ -31,4 +43,4 @@ class Divide:
             assert ( d in divides_ordering )
             return divides_ordering.index(d)
 
-        return get_divide_index(d)
+        return get_divide_index
