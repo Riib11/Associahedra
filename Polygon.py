@@ -108,9 +108,10 @@ class Polygon:
             for d1, d2 in it.combinations(ds, 2)])
 
     # generate all the triangulations that
-    # use `self.N - dim` divides
-    def get_all_triangulations(self, dim):
-        divides_count = self.N - dim
+    # use i divides
+    def get_all_triangulations(self, i):
+        # divides_count = self.N - dim
+        divides_count = i
 
         if divides_count < 0: return []
         if divides_count == 0:

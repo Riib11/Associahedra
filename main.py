@@ -8,23 +8,20 @@ from K import K
 ### Parameters
 #
 
-N = 3
-dim = 1
+N = 5
 
 #
 ### Constructions
 #
 
 k = K(N)
-triangulations = k.get_all_triangulations(dim)
-triangulations_graph = TriangulationGraph(N, triangulations)
+triangulations_graph = TriangulationGraph(N, k, 0)
+# triangulations = k.get_all_triangulations(3)
+# log("embedded vertices", to_table(
+#     [ t.get_embedded_point() for t in triangulations ]))
 
-log("1-paritions", triangulations_graph.get_i_partitions(1))
-
-# triangulations_ordered = (
-#     triangulations_graph.get_triangulations_ordered_2D())
-# embedded_points_ordered = (to_table([tri.get_embedded_point()
-#     for tri in triangulations_ordered]))
-
-# log("triangulations (ordered)", triangulations_ordered)
-# log("embedded points (ordered)", embedded_points_ordered)
+faces2D_ordered = triangulations_graph.get_ordered_facets2D()
+log("facets 2D (ordered)", faces2D_ordered)
+log("embedded faces 2D", to_table([
+    [ t.get_embedded_point() for t in ts ]
+    for ts in faces2D_ordered ]))

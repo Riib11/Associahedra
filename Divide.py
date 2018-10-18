@@ -27,7 +27,7 @@ class Divide:
         return [self.v1, self.v2] == [other.v1, other.v2]
 
     def tostring(self):
-        return "d("+str(self.v1)+","+str(self.v2)+")"
+        return "D("+str(self.v1)+","+str(self.v2)+")"
     __str__ = tostring
     __repr__ = tostring
 

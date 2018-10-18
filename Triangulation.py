@@ -27,7 +27,7 @@ class Triangulation:
         self.polygon = polygon
         self.coxeter_graph = coxeter_graph
 
-    def tostring(self): return "Tri"+str(self.ds)
+    def tostring(self): return "T"+str(self.ds)
     __str__ = tostring
     __repr__ = tostring
 
@@ -80,24 +80,23 @@ class Triangulation:
     # i Divides in common
     def is_i_linked(self, other, i):
         assert ( isinstance(other, Triangulation) )
-        return i == len([d for d in self.ds in d in other.ds])
+        return i <= len([d for d in self.ds if d in other.ds])
 
 
 #
 ### Triangulations Graph
 #
 # + Creates a network of Triangulations,
-#   where links represents i-links
+#   where nodes represent i-triangulations
+#   on the given polygon
 #
 class TriangulationGraph:
 
-    def __init__(self, N, ts):
-        assert ( all([isinstance(t, Triangulation)
-            for t in ts ]) )
-
+    def __init__(self, N, k, dimension):
         self.N = N
         self.V = N + 2
-        self.ts = ts
+        self.k = k
+        self.ts = k.get_all_triangulations(N - 1 - dimension)
 
     # get all of the triangulations that
     # have all of ds divides
@@ -109,7 +108,7 @@ class TriangulationGraph:
     # where each group is of triangulations
     # is such that each member is i-linked
     # with every other member.
-    # each group is a i-dimensional facet of K
+    # each group is a (N + 1 - i)-dimensional facet of K
     def get_i_partitions(self, i):
         ds_all = [] # [Divide]
         for t in self.ts:
@@ -120,17 +119,54 @@ class TriangulationGraph:
             it.combinations(inrange(0, self.V - 1), 2) ]
 
         # iterate through all i-sized combinations
-        # in ds_all, each which represent a segement of
+        # in `ds_all`, each which represent a segement of
         # the parition of the triangulations
-        tri_partition = list(filter(lambda ts: ts != [],
+        return list(filter(lambda ts: ts != [],
             [ self.get_triangulations_with_divides(ds)
             for ds in it.combinations(ds_all, i) ]))
 
+    def get_ordered_facets2D(self):
+        i = (self.N - 1) - 2 # dim = 2
+        return [ self.order_facet2D(ts)
+            for ts in self.get_i_partitions(i) ]
 
+    # given a 2D facet, orders the 'vertex'
+    # triangulations into a single cycle,
+    # which is friendly to Mathematica's
+    # Polgon function.
+    def order_facet2D(self, ts):
+        i = (self.N - 1) - 1 # dim = 1
+        # must be a facet (linked 1 dimension up (i-1))
+        assert ( all([ t1.is_i_linked(t2, i - 1)
+            for t1, t2 in it.combinations(ts, 2) ]) )
+        
+        ts = ts[:]
+        log("ts before ordering", ts)
+        # get the first triangulation
+        # that is 1-linked with t
+        def get_next(t):
+            for t_next in ts:
+                if t.is_i_linked(t_next, i):
+                    return t_next
+        # order all the triangulations
+        # into a cycle
+        cycle = []
+        while len(ts) > 0:
+            # pick a start
+            if len(cycle) == 0:
+                cycle.append(ts[0])
+                ts.remove(ts[0])
+            # pick a triangulation that
+            # is 1-linked with the
+            # triangulation just added
+            else:
+                t_next = get_next(cycle[-1])
+                cycle.append(t_next)
+                ts.remove(t_next)
+        log("ts after ordering", cycle)
+        return cycle
 
-        return tri_partition
-
-    
+    """
     # get an ordered cycle of
     # the embedded points of K-3
     # (for K-3, the embedded shape will
@@ -163,7 +199,7 @@ class TriangulationGraph:
                 ts.remove(t_next)
 
         return cycle
-
+    """
 
 
 

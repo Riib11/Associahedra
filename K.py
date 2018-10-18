@@ -23,5 +23,5 @@ class K:
         self.coxeter_graph = CoxeterGraph(N)
         self.polygon = Polygon(N, self.coxeter_graph)
 
-    def get_all_triangulations(self, dim):
-        return self.polygon.get_all_triangulations(dim)
+    def get_all_triangulations(self, i):
+        return self.polygon.get_all_triangulations(i)
