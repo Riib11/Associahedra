@@ -1,3 +1,5 @@
 # Netting K6
 
-`K6` lies in on a 5-hyperplane in `R^6`. This means that even after transforming to `R^5` and then projecting into `R^4`, it is difficult to visualize. An approach to resolving this is to, rather than visualizing `K6` in its exact realization, breaking it down into a net, which satisfacorily lies in `R^3`.
+`K6` lies in on a 5-hyperplane in `R^6`. This means that even after transforming to `R^5` and then projecting into `R^4`, it is difficult to visualize. An approach to resolving this is to, rather than visualizing `K6` in its exact embedded realization, breaking it down into a net of the embedded 3-faces, which satisfacorily lies in `R^3`.
+
+The net corresponds to a spanning tree, where the nodes of the tree are all of the 3-faces of the embedded `K6`, where two 3-faces are connected if they have a 2-face in common. In the embedding of the net, adjacent 3-faces will be connected by their common 2-face. Intuition may guess that the fits won't be perfect, like their must be some 4D curvature that makes the net not fit together right, but that intuition is wrong. Any spanning stree will generate a net.
