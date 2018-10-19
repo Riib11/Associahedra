@@ -77,6 +77,15 @@ class Triangulation:
     def get_embedded_point(self):
         return [ self.x(i) for i in inrange(1, self.N) ]
 
+    @classmethod
+    def embed_recursive(cls, x):
+        assert ( isinstance(x, list)
+            or isinstance(x, Triangulation) )
+        if isinstance(x, list):
+            return list(map(cls.embed_recursive, x))
+        else:
+            return x.get_embedded_point()
+
     # self and other have exactly
     # i Divides in common
     def is_i_linked(self, other, i):
@@ -88,8 +97,8 @@ class Triangulation:
 ### Triangulations Graph
 #
 # + Creates a network of Triangulations,
-#   where nodes represent i-triangulations
-#   on the given polygon
+#   where nodes represent (N - 1)-triangulations
+#   on the given polygon (vertices)
 #
 # + An 'i-facet' is a group of Triangulations
 #   in this graph where each of its triangulations
@@ -104,7 +113,7 @@ class TriangulationGraph:
         self.N = N
         self.V = N + 2
         self.k = k
-        self.ts = ts or k.get_all_triangulations(N - 1 - dim)
+        self.ts = ts or k.get_all_triangulations(N - 1)
 
     # gets a subgraph of this graph
     # with just the given triangulations
@@ -138,19 +147,20 @@ class TriangulationGraph:
             [ self.get_triangulations_with_divides(ds)
             for ds in it.combinations(ds_all, i) ]))
 
-    # gets the set of ordered 2D facets
-    # [requires] at least 2D associahedra
-    def get_ordered_facets2D(self):
+    # gets the set of ordered 2-facets
+    # [requires] at least 2D associahedra (K3)
+    # [outputs]  [[ Triangulation ]] = [ 2-facet ]
+    def get_2facets(self):
         assert ( self.N >= 3 )
         i = (self.N - 1) - 2 # dim = 2
-        return [ self.order_facet2D(ts)
+        return [ self.order_2facet(ts)
             for ts in self.get_i_partitions(i) ]
 
-    # given a 2D facet, orders the vertex
+    # given a 2-facet, orders the vertex
     # triangulations into a single cycle,
     # which is friendly to Mathematica's
     # Polygon function.
-    def order_facet2D(self, ts):
+    def order_2facet(self, ts):
         i = (self.N - 1) - 1 # dim = 1
         # must be a facet (linked 1 dimension up (i-1))
         assert ( all([ t1.is_i_linked(t2, i - 1)
@@ -180,22 +190,24 @@ class TriangulationGraph:
                 ts.remove(t_next)
         return cycle
 
-    # gets the set of 3D facets, each of which
-    # is a set of ordered 2D facets.
-    # [requires] at least 3D associahedra
-    def get_facets3D(self):
+    # gets the set of 3-facets, each of which
+    # is a set of ordered 2-facets.
+    # [requires] at least 3D associahedra (K4)
+    # [outputs] [[[ Triangulation ]]] = [ 3-facet ]
+    def get_3facets(self):
         assert ( self.N >= 4 )
         i = (self.N - 1) - 3 # dim = 3
-        return [ facet3D.get_ordered_facets2D()
-            for facet3D in [ self.get_subgraph(ts)
+        return [ facet.get_2facets()
+            for facet in [ self.get_subgraph(ts) # 3-facets
             for ts in self.get_i_partitions(i) ] ]
 
-    # gets the same set of 3D facets as `get_facets3D`
+    # gets the same set of 3-facets as `get_3facets`
     # but in the form of a graph, in which
-    # two 3D facets are linked if they share a
-    # 2D facet in common. Such a link is labeled
-    # with the 2D facet
-    # [requires] at least 3D associahedra
-    def get_graphed_facets3D(self):
+    # two 3-facets are linked if they share a
+    # 2-facet in common. Such a link is labeled
+    # with the 2-facet
+    # [requires] at least 3D associahedra (K4)
+    # [outputs] Graph< [[ Triangulation ]] = 3-facet >
+    def get_graphed_3facets(self):
         assert ( self.N >= 4 )
         # TODO
