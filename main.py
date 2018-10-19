@@ -8,14 +8,14 @@ from K import K
 ### Parameters
 #
 
-N = 5
+N = 4
 
 #
 ### Constructions
 #
 
 k = K(N)
-triangulations_graph = TriangulationGraph(N, k, 0)
+triangulations_graph = TriangulationGraph(N, k, dim=0)
 # triangulations = k.get_all_triangulations(3)
 # log("embedded vertices", to_table(
 #     [ t.get_embedded_point() for t in triangulations ]))

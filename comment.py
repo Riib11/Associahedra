@@ -1,8 +1,7 @@
 """
 +==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
-|  ~>>       // Triangulation //           <<~  |
+|  ~>>               Comment               <<~  |
 +==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==+
-
 
 
 """
@@ -33,4 +32,4 @@ def make_file_header(title):
     s += "\n" + bottom
     return s
 
-print(make_file_header("Coxeter Graph"))
+print(make_file_header("Graph"))

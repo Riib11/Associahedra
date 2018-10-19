@@ -11,6 +11,7 @@ from debug import *
 import itertools as it
 
 from Divide import Divide
+from Graph import Graph
 
 #
 ### Triangulation
@@ -90,13 +91,25 @@ class Triangulation:
 #   where nodes represent i-triangulations
 #   on the given polygon
 #
+# + An 'i-facet' is a group of Triangulations
+#   in this graph where each of its triangulations
+#   is i-linked to each other of its triangulations.
+#
+# + A 'vertex' is a 0-facet. Note that a vertex
+#   is a group that consists of just 1 triangulation.
+#
 class TriangulationGraph:
 
-    def __init__(self, N, k, dimension):
+    def __init__(self, N, k, ts=None):
         self.N = N
         self.V = N + 2
         self.k = k
-        self.ts = k.get_all_triangulations(N - 1 - dimension)
+        self.ts = ts or k.get_all_triangulations(N - 1 - dim)
+
+    # gets a subgraph of this graph
+    # with just the given triangulations
+    def get_subgraph(self, ts):
+        return TriangulationGraph(self.N, self.k, ts)
 
     # get all of the triangulations that
     # have all of ds divides
@@ -125,9 +138,7 @@ class TriangulationGraph:
             [ self.get_triangulations_with_divides(ds)
             for ds in it.combinations(ds_all, i) ]))
 
-    # gets a set of 2D 'facets', each of which
-    # is a cycle of Triangulations, ordered to make
-    # the perimeter of the facet
+    # gets the set of ordered 2D facets
     # [requires] at least 2D associahedra
     def get_ordered_facets2D(self):
         assert ( self.N >= 3 )
@@ -135,7 +146,7 @@ class TriangulationGraph:
         return [ self.order_facet2D(ts)
             for ts in self.get_i_partitions(i) ]
 
-    # given a 2D facet, orders the 'vertex'
+    # given a 2D facet, orders the vertex
     # triangulations into a single cycle,
     # which is friendly to Mathematica's
     # Polygon function.
@@ -146,7 +157,6 @@ class TriangulationGraph:
             for t1, t2 in it.combinations(ts, 2) ]) )
         
         ts = ts[:]
-        log("ts before ordering", ts)
         # get the first triangulation
         # that is 1-linked with t
         def get_next(t):
@@ -168,19 +178,17 @@ class TriangulationGraph:
                 t_next = get_next(cycle[-1])
                 cycle.append(t_next)
                 ts.remove(t_next)
-        log("ts after ordering", cycle)
         return cycle
 
-    # gets a set of 3D facets, each of which
-    # is a set of 2D facets. Each 2D facet is
-    # a cycle of Triangulations, ordered to
-    # make the perimeter of the 2D facet
+    # gets the set of 3D facets, each of which
+    # is a set of ordered 2D facets.
     # [requires] at least 3D associahedra
     def get_facets3D(self):
         assert ( self.N >= 4 )
-        i = (self.N - 1) - 2 # dim = 
-        return [ self.order_facet2D(ts)
-            for ts in self.get_i_partitions(i) ]
+        i = (self.N - 1) - 3 # dim = 3
+        return [ facet3D.get_ordered_facets2D()
+            for facet3D in [ self.get_subgraph(ts)
+            for ts in self.get_i_partitions(i) ] ]
 
     # gets the same set of 3D facets as `get_facets3D`
     # but in the form of a graph, in which
@@ -190,4 +198,4 @@ class TriangulationGraph:
     # [requires] at least 3D associahedra
     def get_graphed_facets3D(self):
         assert ( self.N >= 4 )
-        # TODo
+        # TODO
