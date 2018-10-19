@@ -17,7 +17,7 @@ N = 5
 
 k = K(N)
 triangulations_graph = TriangulationGraph(N, k)
-facets = triangulations_graph.get_3facets()
+facets = triangulations_graph.get_facet3s()
 
 embedded_facet = Triangulation.embed_recursive(facets)
 log("embedded facet", to_table( embedded_facet ))

@@ -150,17 +150,17 @@ class TriangulationGraph:
     # gets the set of ordered 2-facets
     # [requires] at least 2D associahedra (K3)
     # [outputs]  [[ Triangulation ]] = [ 2-facet ]
-    def get_2facets(self):
+    def get_facet2s(self):
         assert ( self.N >= 3 )
         i = (self.N - 1) - 2 # dim = 2
-        return [ self.order_2facet(ts)
+        return [ self.order_facet2(ts)
             for ts in self.get_i_partitions(i) ]
 
     # given a 2-facet, orders the vertex
     # triangulations into a single cycle,
     # which is friendly to Mathematica's
     # Polygon function.
-    def order_2facet(self, ts):
+    def order_facet2(self, ts):
         i = (self.N - 1) - 1 # dim = 1
         # must be a facet (linked 1 dimension up (i-1))
         assert ( all([ t1.is_i_linked(t2, i - 1)
@@ -190,24 +190,24 @@ class TriangulationGraph:
                 ts.remove(t_next)
         return cycle
 
-    # gets the set of 3-facets, each of which
+    # gets the set of facet3s, each of which
     # is a set of ordered 2-facets.
     # [requires] at least 3D associahedra (K4)
-    # [outputs] [[[ Triangulation ]]] = [ 3-facet ]
-    def get_3facets(self):
+    # [outputs] [[[ Triangulation ]]] = [ facet3 ]
+    def get_facet3s(self):
         assert ( self.N >= 4 )
         i = (self.N - 1) - 3 # dim = 3
-        return [ facet.get_2facets()
-            for facet in [ self.get_subgraph(ts) # 3-facets
+        return [ facet.get_facet2s()
+            for facet in [ self.get_subgraph(ts) # facet3s
             for ts in self.get_i_partitions(i) ] ]
 
-    # gets the same set of 3-facets as `get_3facets`
+    # gets the same set of facet3s as `get_facet3s`
     # but in the form of a graph, in which
-    # two 3-facets are linked if they share a
+    # two facet3s are linked if they share a
     # 2-facet in common. Such a link is labeled
     # with the 2-facet
     # [requires] at least 3D associahedra (K4)
-    # [outputs] Graph< [[ Triangulation ]] = 3-facet >
-    def get_graphed_3facets(self):
+    # [outputs] Graph< [[ Triangulation ]] = facet3 >
+    def get_graphed_facet3s(self):
         assert ( self.N >= 4 )
         # TODO
