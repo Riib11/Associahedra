@@ -108,7 +108,7 @@ class TriangulationGraph:
     # where each group is of triangulations
     # is such that each member is i-linked
     # with every other member.
-    # each group is a (N + 1 - i)-dimensional facet of K
+    # each group is a (N - 1 - i)-dimensional facet of K
     def get_i_partitions(self, i):
         ds_all = [] # [Divide]
         for t in self.ts:
@@ -125,7 +125,12 @@ class TriangulationGraph:
             [ self.get_triangulations_with_divides(ds)
             for ds in it.combinations(ds_all, i) ]))
 
+    # gets a set of 2D 'facets', each of which
+    # is a cycle of Triangulations, ordered to make
+    # the perimeter of the facet
+    # [requires] at least 2D associahedra
     def get_ordered_facets2D(self):
+        assert ( self.N >= 3 )
         i = (self.N - 1) - 2 # dim = 2
         return [ self.order_facet2D(ts)
             for ts in self.get_i_partitions(i) ]
@@ -133,7 +138,7 @@ class TriangulationGraph:
     # given a 2D facet, orders the 'vertex'
     # triangulations into a single cycle,
     # which is friendly to Mathematica's
-    # Polgon function.
+    # Polygon function.
     def order_facet2D(self, ts):
         i = (self.N - 1) - 1 # dim = 1
         # must be a facet (linked 1 dimension up (i-1))
@@ -166,41 +171,23 @@ class TriangulationGraph:
         log("ts after ordering", cycle)
         return cycle
 
-    """
-    # get an ordered cycle of
-    # the embedded points of K-3
-    # (for K-3, the embedded shape will
-    # be a 2D pentagon embedded in 3D)
-    def get_triangulations_ordered_2D(self):
-        assert ( self.ts[0].N == 3 ) # only for K-3
+    # gets a set of 3D facets, each of which
+    # is a set of 2D facets. Each 2D facet is
+    # a cycle of Triangulations, ordered to
+    # make the perimeter of the 2D facet
+    # [requires] at least 3D associahedra
+    def get_facets3D(self):
+        assert ( self.N >= 4 )
+        i = (self.N - 1) - 2 # dim = 
+        return [ self.order_facet2D(ts)
+            for ts in self.get_i_partitions(i) ]
 
-        ts = self.ts[:]
-        cycle = []
-
-        # get the first triangulation
-        # that is 1-linked with t
-        def get_next(t):
-            for t_next in ts:
-                if t.is_i_linked(t_next, 1):
-                    return t_next
-
-        while len(ts) > 0:
-
-            # pick a start
-            if len(cycle) == 0:
-                cycle.append(ts[0])
-                ts.remove(ts[0])
-            # pick a triangulation that
-            # is 1-linked with the
-            # triangulation just added
-            else:
-                t_next = get_next(cycle[-1])
-                cycle.append(t_next)
-                ts.remove(t_next)
-
-        return cycle
-    """
-
-
-
-
+    # gets the same set of 3D facets as `get_facets3D`
+    # but in the form of a graph, in which
+    # two 3D facets are linked if they share a
+    # 2D facet in common. Such a link is labeled
+    # with the 2D facet
+    # [requires] at least 3D associahedra
+    def get_graphed_facets3D(self):
+        assert ( self.N >= 4 )
+        # TODo
