@@ -9,7 +9,7 @@ from K import K
 ### Parameters
 #
 
-N = 5
+N = 4
 
 #
 ### Constructions
@@ -20,4 +20,4 @@ triangulations_graph = TriangulationGraph(N, k)
 facets = triangulations_graph.get_facet3s()
 
 embedded_facet = Triangulation.embed_recursive(facets)
-log("embedded facet", to_table( embedded_facet ))
+log("embedded facets", to_table( embedded_facet ))

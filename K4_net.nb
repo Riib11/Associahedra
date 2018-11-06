@@ -1,0 +1,2012 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    101853,       2004]
+NotebookOptionsPosition[    100778,       1960]
+NotebookOutlinePosition[    101156,       1977]
+CellTagsIndexPosition[    101113,       1974]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Associahedron Net: K4", "Title",
+ CellChangeTimes->{{3.7504667544857492`*^9, 3.7504667584530687`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Computed Data", "Section",
+ CellChangeTimes->{{3.750466769955727*^9, 3.750466780021426*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", "facets", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"facets", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "6", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "6", ",", "2", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "6", ",", "1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "4", ",", "1", ",", "4"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "6", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1", ",", "6", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1", ",", "3", ",", "4"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "4", ",", "1", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "2", ",", "1", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1", ",", "2", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1", ",", "3", ",", "4"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1", ",", "3", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1", ",", "6", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "1", ",", "4", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "1", ",", "2", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1", ",", "2", ",", "4"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1", ",", "2", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "2", ",", "1", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "2", ",", "1", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "1", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"4", ",", "1", ",", "2", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "1", ",", "4", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "3", ",", "2", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "3", ",", "1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "2", ",", "1", ",", "3"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "4", ",", "1", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "6", ",", "1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "3", ",", "1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "2", ",", "1", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "2", ",", "1", ",", "4"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "6", ",", "1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "6", ",", "2", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "3", ",", "2", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "3", ",", "1", ",", "2"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "6", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "6", ",", "2", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "3", ",", "2", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "1", ",", "4", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1", ",", "6", ",", "1"}], "}"}]}], "}"}]}], 
+    "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.75046694166787*^9, 3.7504669562332067`*^9}, {
+  3.750467251561942*^9, 3.750467253944447*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Transform 4D \[Rule] 3D", "Section",
+ CellChangeTimes->{{3.750466783425926*^9, 3.7504668316897297`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", "transform", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"transform", "[", 
+     RowBox[{"{", 
+      RowBox[{"x_", ",", "y_", ",", "z_", ",", "w_"}], "}"}], "]"}], ":=", 
+    RowBox[{"Block", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "m1", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"m1", "=", 
+        RowBox[{"RowReduce", "[", 
+         RowBox[{"(", GridBox[{
+            {
+             RowBox[{"1", "/", 
+              RowBox[{"Sqrt", "[", "2", "]"}]}], 
+             RowBox[{"-", 
+              FractionBox["1", 
+               SqrtBox["6"]]}], 
+             RowBox[{"-", 
+              FractionBox["1", 
+               RowBox[{"2", " ", 
+                SqrtBox["3"]}]]}], "x"},
+            {"0", 
+             SqrtBox[
+              FractionBox["2", "3"]], 
+             RowBox[{"-", 
+              FractionBox["1", 
+               RowBox[{"2", " ", 
+                SqrtBox["3"]}]]}], "y"},
+            {"0", "0", 
+             FractionBox[
+              SqrtBox["3"], "2"], "z"},
+            {
+             RowBox[{
+              RowBox[{"-", "1"}], "/", 
+              RowBox[{"Sqrt", "[", "2", "]"}]}], 
+             RowBox[{"-", 
+              FractionBox["1", 
+               SqrtBox["6"]]}], 
+             RowBox[{"-", 
+              FractionBox["1", 
+               RowBox[{"2", " ", 
+                SqrtBox["3"]}]]}], 
+             RowBox[{"w", "-", "10"}]}
+           }], ")"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"m1", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "[", 
+           RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"m1", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "[", 
+           RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"m1", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], "[", 
+           RowBox[{"[", "4", "]"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+        "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"facetsTransformed", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"transform", "[", 
+        RowBox[{
+         RowBox[{"facets", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "j", "]"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{"Length", "[", 
+          RowBox[{"facets", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "facets", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.750466977294009*^9, 3.7504670476974916`*^9}, {
+  3.750467206262754*^9, 3.750467262433597*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Unfold Net 3D \[Rule] 2D", "Section",
+ CellChangeTimes->{{3.750466874333603*^9, 3.7504668800600653`*^9}}],
+
+Cell["\<\
+`facetsTransformed` is an array of 2D faces. Each 2D face is an array of 3D \
+points.
+
+My goal is to take the each 2D face and flatten it\[CloseCurlyQuote]s points \
+into the appropriate 2-dimensional shape. For a given face, this should be a \
+matter of finding an orthonormal basis for the plane-2 that the face rests \
+inside, and then expressing the vertices of the face in terms of that basis.\
+\>", "Text",
+ CellChangeTimes->{{3.7504675641295757`*^9, 3.750467726531357*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", 
+    RowBox[{"unfoldFacet", ",", "facetsUnfolded"}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"unfoldFacet", "[", "facet2_", "]"}], ":=", 
+    RowBox[{"Block", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "origin", ",", "facet2Linear", ",", "b1", ",", "b2", ",", "basis", ",",
+         "unfoldVertex"}], "}"}], ",", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"origin", "=", 
+        RowBox[{"facet2", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "choose", " ", "arbitrary", " ", "origin", " ", "in", " ", "plan"}], 
+        " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"facet2Linear", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"facet2", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "-", "origin"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "[", "facet2", "]"}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "choose", " ", "arbitrary", " ", "orthonormal", " ", "basis"}], " ", 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"basis", "=", 
+        RowBox[{"Orthogonalize", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"facet2Linear", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"facet2Linear", "[", 
+            RowBox[{"[", "3", "]"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"b1", "=", 
+        RowBox[{"basis", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+       RowBox[{"b2", "=", 
+        RowBox[{"basis", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"unfold", " ", "vertex", " ", "into", " ", "2", "D"}], ",", 
+         " ", 
+         RowBox[{"in", " ", "terms", " ", "of", " ", "basis"}]}], " ", "*)"}],
+        "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"unfoldVertex", "[", 
+         RowBox[{"{", 
+          RowBox[{"x_", ",", "y_", ",", "z_"}], "}"}], "]"}], ":=", 
+        RowBox[{"Block", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", "m", "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"m", "=", 
+            RowBox[{"RowReduce", "[", 
+             RowBox[{"(", GridBox[{
+                {
+                 RowBox[{"b1", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], 
+                 RowBox[{"b2", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "x"},
+                {
+                 RowBox[{"b1", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}], 
+                 RowBox[{"b2", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}], "y"},
+                {
+                 RowBox[{"b1", "[", 
+                  RowBox[{"[", "3", "]"}], "]"}], 
+                 RowBox[{"b2", "[", 
+                  RowBox[{"[", "3", "]"}], "]"}], "z"}
+               }], ")"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Return", "[", 
+            RowBox[{"Normalize", "[", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"m", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "[", 
+                RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"m", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "[", 
+                RowBox[{"[", "3", "]"}], "]"}]}], "\[IndentingNewLine]", 
+              "}"}], "]"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"unfold", " ", "all", " ", "vertices"}], " ", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"Map", "[", 
+         RowBox[{"unfoldVertex", ",", "facet2Linear"}], "]"}], "]"}], ";"}]}],
+      "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"facetsUnfolded", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"unfoldFacet", ",", "facetsTransformed"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.750467741127838*^9, 3.750467893265045*^9}, {
+  3.750467949330676*^9, 3.7504680844389133`*^9}, {3.7504681195371647`*^9, 
+  3.750468591105225*^9}, {3.750468648225575*^9, 3.750468654375972*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Render Hull", "Section",
+ CellChangeTimes->{{3.750467280829979*^9, 3.750467297224655*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Graphics3D", "[", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Polygon", ",", "facetsTransformed"}], "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"Polygon", "[", 
+     RowBox[{"facetsTransformed", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{"Length", "[", "facetsTransformed", "]"}]}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.7504673052889442`*^9, 3.750467346610921*^9}, {
+  3.7504717452761717`*^9, 3.750471798862359*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{7 2^Rational[-1, 2], 3 Rational[3, 2]^Rational[1, 2], 2 
+        3^Rational[1, 2]}, {
+       5 2^Rational[1, 2], 2 6^Rational[1, 2], 4 3^Rational[1, 2]}, {
+       5 2^Rational[1, 2], 10 Rational[2, 3]^Rational[1, 2], 4 
+        3^Rational[-1, 2]}, {
+       9 2^Rational[-1, 2], 19 6^Rational[-1, 2], 2 3^Rational[-1, 2]}, {
+       7 2^Rational[-1, 2], 13 6^Rational[-1, 2], 2 3^Rational[-1, 2]}}, {{
+      4.949747468305832, 3.674234614174767, 3.4641016151377544`}, {
+      7.0710678118654755`, 4.898979485566356, 6.928203230275509}, {
+      7.0710678118654755`, 8.16496580927726, 2.3094010767585034`}, {
+      6.363961030678928, 7.7567175188133985`, 1.1547005383792517`}, {
+      4.949747468305832, 5.30722777603022, 1.1547005383792517`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{7 2^Rational[-1, 2], 3 Rational[3, 2]^Rational[1, 2], 2 
+        3^Rational[1, 2]}, {
+       5 2^Rational[1, 2], 2 6^Rational[1, 2], 4 3^Rational[1, 2]}, {
+       11 2^Rational[-1, 2], 3 Rational[3, 2]^Rational[1, 2], 4 
+        3^Rational[1, 2]}, {
+       4 2^Rational[1, 2], 6^Rational[1, 2], 2 3^Rational[1, 2]}}, {{
+      4.949747468305832, 3.674234614174767, 3.4641016151377544`}, {
+      7.0710678118654755`, 4.898979485566356, 6.928203230275509}, {
+      7.778174593052022, 3.674234614174767, 6.928203230275509}, {
+      5.656854249492381, 2.449489742783178, 3.4641016151377544`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{7 2^Rational[-1, 2], 3 Rational[3, 2]^Rational[1, 2], 2 
+        3^Rational[1, 2]}, {
+       7 2^Rational[-1, 2], 13 6^Rational[-1, 2], 2 3^Rational[-1, 2]}, {
+       9 2^Rational[-1, 2], 7 6^Rational[-1, 2], 2 3^Rational[-1, 2]}, {
+       9 2^Rational[-1, 2], 5 6^Rational[-1, 2], 4 3^Rational[-1, 2]}, {
+       4 2^Rational[1, 2], 6^Rational[1, 2], 2 3^Rational[1, 2]}}, {{
+      4.949747468305832, 3.674234614174767, 3.4641016151377544`}, {
+      4.949747468305832, 5.30722777603022, 1.1547005383792517`}, {
+      6.363961030678928, 2.8577380332470415`, 1.1547005383792517`}, {
+      6.363961030678928, 2.041241452319315, 2.3094010767585034`}, {
+      5.656854249492381, 2.449489742783178, 3.4641016151377544`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{4 2^Rational[1, 2], 6^Rational[1, 2], 2 3^Rational[1, 2]}, {
+       11 2^Rational[-1, 2], 3 Rational[3, 2]^Rational[1, 2], 4 
+        3^Rational[1, 2]}, {
+       13 2^Rational[-1, 2], 7 6^Rational[-1, 2], 8 3^Rational[-1, 2]}, {
+       11 2^Rational[-1, 2], 5 6^Rational[-1, 2], 4 3^Rational[-1, 2]}, {
+       9 2^Rational[-1, 2], 5 6^Rational[-1, 2], 4 3^Rational[-1, 2]}}, {{
+      5.656854249492381, 2.449489742783178, 3.4641016151377544`}, {
+      7.778174593052022, 3.674234614174767, 6.928203230275509}, {
+      9.192388155425117, 2.8577380332470415`, 4.618802153517007}, {
+      7.778174593052022, 2.041241452319315, 2.3094010767585034`}, {
+      6.363961030678928, 2.041241452319315, 2.3094010767585034`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{9 2^Rational[-1, 2], 5 6^Rational[-1, 2], 4 
+        3^Rational[-1, 2]}, {
+       9 2^Rational[-1, 2], 7 6^Rational[-1, 2], 2 3^Rational[-1, 2]}, {
+       11 2^Rational[-1, 2], 7 6^Rational[-1, 2], 2 3^Rational[-1, 2]}, {
+       11 2^Rational[-1, 2], 5 6^Rational[-1, 2], 4 3^Rational[-1, 2]}}, {{
+      6.363961030678928, 2.041241452319315, 2.3094010767585034`}, {
+      6.363961030678928, 2.8577380332470415`, 1.1547005383792517`}, {
+      7.778174593052022, 2.8577380332470415`, 1.1547005383792517`}, {
+      7.778174593052022, 2.041241452319315, 2.3094010767585034`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{11 2^Rational[-1, 2], 5 6^Rational[-1, 2], 4 
+        3^Rational[-1, 2]}, {
+       13 2^Rational[-1, 2], 7 6^Rational[-1, 2], 8 3^Rational[-1, 2]}, {
+       13 2^Rational[-1, 2], 11 6^Rational[-1, 2], 4 3^Rational[-1, 2]}, {
+       6 2^Rational[1, 2], 5 Rational[2, 3]^Rational[1, 2], 2 
+        3^Rational[-1, 2]}, {
+       11 2^Rational[-1, 2], 7 6^Rational[-1, 2], 2 3^Rational[-1, 2]}}, {{
+      7.778174593052022, 2.041241452319315, 2.3094010767585034`}, {
+      9.192388155425117, 2.8577380332470415`, 4.618802153517007}, {
+      9.192388155425117, 4.4907311951024935`, 2.3094010767585034`}, {
+      8.485281374238571, 4.08248290463863, 1.1547005383792517`}, {
+      7.778174593052022, 2.8577380332470415`, 1.1547005383792517`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{7 2^Rational[-1, 2], 13 6^Rational[-1, 2], 2 
+        3^Rational[-1, 2]}, {
+       9 2^Rational[-1, 2], 19 6^Rational[-1, 2], 2 3^Rational[-1, 2]}, {
+       6 2^Rational[1, 2], 5 Rational[2, 3]^Rational[1, 2], 2 
+        3^Rational[-1, 2]}, {
+       11 2^Rational[-1, 2], 7 6^Rational[-1, 2], 2 3^Rational[-1, 2]}, {
+       9 2^Rational[-1, 2], 7 6^Rational[-1, 2], 2 3^Rational[-1, 2]}}, {{
+      4.949747468305832, 5.30722777603022, 1.1547005383792517`}, {
+      6.363961030678928, 7.7567175188133985`, 1.1547005383792517`}, {
+      8.485281374238571, 4.08248290463863, 1.1547005383792517`}, {
+      7.778174593052022, 2.8577380332470415`, 1.1547005383792517`}, {
+      6.363961030678928, 2.8577380332470415`, 1.1547005383792517`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{9 2^Rational[-1, 2], 19 6^Rational[-1, 2], 2 
+        3^Rational[-1, 2]}, {
+       5 2^Rational[1, 2], 10 Rational[2, 3]^Rational[1, 2], 4 
+        3^Rational[-1, 2]}, {
+       13 2^Rational[-1, 2], 11 6^Rational[-1, 2], 4 3^Rational[-1, 2]}, {
+       6 2^Rational[1, 2], 5 Rational[2, 3]^Rational[1, 2], 2 
+        3^Rational[-1, 2]}}, {{6.363961030678928, 7.7567175188133985`, 
+      1.1547005383792517`}, {7.0710678118654755`, 8.16496580927726, 
+      2.3094010767585034`}, {9.192388155425117, 4.4907311951024935`, 
+      2.3094010767585034`}, {8.485281374238571, 4.08248290463863, 
+      1.1547005383792517`}}]]], ",", 
+   Graphics3DBox[
+    Polygon3DBox[
+     NCache[{{5 2^Rational[1, 2], 2 6^Rational[1, 2], 4 3^Rational[1, 2]}, {
+       5 2^Rational[1, 2], 10 Rational[2, 3]^Rational[1, 2], 4 
+        3^Rational[-1, 2]}, {
+       13 2^Rational[-1, 2], 11 6^Rational[-1, 2], 4 3^Rational[-1, 2]}, {
+       13 2^Rational[-1, 2], 7 6^Rational[-1, 2], 8 3^Rational[-1, 2]}, {
+       11 2^Rational[-1, 2], 3 Rational[3, 2]^Rational[1, 2], 4 
+        3^Rational[1, 2]}}, {{7.0710678118654755`, 4.898979485566356, 
+      6.928203230275509}, {7.0710678118654755`, 8.16496580927726, 
+      2.3094010767585034`}, {9.192388155425117, 4.4907311951024935`, 
+      2.3094010767585034`}, {9.192388155425117, 2.8577380332470415`, 
+      4.618802153517007}, {7.778174593052022, 3.674234614174767, 
+      6.928203230275509}}]]]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7504673433575087`*^9, 3.750467347015688*^9}, {
+  3.750471776659039*^9, 3.750471799383008*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Render Net", "Section",
+ CellChangeTimes->{{3.750467299055347*^9, 3.750467301590716*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Polygon", "[", 
+      RowBox[{"facetsUnfolded", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+     RowBox[{"Axes", "->", "True"}]}], "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{"Length", "[", "facetsUnfolded", "]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7504685956842937`*^9, 3.750468688675775*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 
+       0}, {(2/(2 + 
+         Rational[1, 96] (
+           12 + ((-7) 2^Rational[-1, 2] + 
+             5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+             2 6^Rational[1, 2])^2) (
+            2 ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2]) (3/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^Rational[1, 2] - ((-7) 
+              2^Rational[-1, 2] + 5 2^Rational[1, 2]) (4 3^Rational[-1, 2] - 
+             2 3^Rational[1, 2]) (
+              12 + ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                2 6^Rational[1, 2])^2)^
+             Rational[-1, 2])^2 (((-4) 3^Rational[-1, 2] + 2 3^Rational[1, 2] + 
+             2 3^Rational[
+                1, 2] (((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + 
+               2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                 3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                 Rational[3, 2]^Rational[1, 2]) ((-3) 
+                  Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+              12 + ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                2 6^Rational[1, 2])^2))^2 + ((-7) 2^Rational[-1, 2] + 
+             5 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+               2^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + 
+               2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                 3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                 Rational[3, 2]^Rational[1, 2]) ((-3) 
+                  Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+              12 + ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                2 6^Rational[1, 2])^2))^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+             3 Rational[3, 2]^
+              Rational[1, 2] + (3 Rational[3, 2]^Rational[1, 2] - 2 
+               6^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + 
+               2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                 3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                 Rational[3, 2]^Rational[1, 2]) ((-3) 
+                  Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+              12 + ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                2 6^Rational[1, 2])^2))^2)))^Rational[1, 2], 
+        Rational[-1, 
+          4] ((-2) ((-7) 2^Rational[-1, 2] + 
+           5 2^Rational[1, 2]) (3/(
+            12 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              2 6^Rational[1, 2])^2))^
+           Rational[1, 2] + ((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2]) (
+           4 3^Rational[-1, 2] - 2 
+           3^Rational[1, 2]) (
+            12 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              2 6^Rational[1, 2])^2)^Rational[-1, 2]) (
+          6 (12 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2] + 
+              2 3^Rational[
+                 1, 2] (((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+                2^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + (
+              10 Rational[2, 3]^Rational[1, 2] - 3 
+              Rational[3, 2]^
+               Rational[1, 2] + (3 Rational[3, 2]^Rational[1, 2] - 2 
+                6^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2)^(-1) (2 + 
+           Rational[1, 96] (
+             12 + ((-7) 2^Rational[-1, 2] + 
+               5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+               2 6^Rational[1, 2])^2) (
+              2 ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2]) (3/(
+                 12 + ((-7) 2^Rational[-1, 2] + 
+                   5 2^Rational[1, 2])^2 + ((-3) 
+                    Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2])^2))^
+                Rational[1, 2] - ((-7) 2^Rational[-1, 2] + 
+               5 2^Rational[1, 2]) (4 3^Rational[-1, 2] - 2 
+               3^Rational[1, 2]) (
+                12 + ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  2 6^Rational[1, 2])^2)^
+               Rational[-1, 2])^2 (((-4) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2] + 
+               2 3^Rational[
+                  1, 2] (((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + 
+                 2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                   Rational[3, 2]^Rational[1, 2]) ((-3) 
+                    Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+                12 + ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  2 6^Rational[1, 2])^2))^2 + ((-7) 2^Rational[-1, 2] + 
+               5 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+                 2^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                   5 2^Rational[1, 2])^2 + 
+                 2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                   Rational[3, 2]^Rational[1, 2]) ((-3) 
+                    Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+                12 + ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  2 6^Rational[1, 2])^2))^2 + (
+               10 Rational[2, 3]^Rational[1, 2] - 3 
+               Rational[3, 2]^
+                Rational[1, 2] + (3 Rational[3, 2]^Rational[1, 2] - 2 
+                 6^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                   5 2^Rational[1, 2])^2 + 
+                 2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                   Rational[3, 2]^Rational[1, 2]) ((-3) 
+                    Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+                12 + ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  2 6^Rational[1, 2])^2))^2)))^Rational[-1, 2]}, {
+       0, -(2 (6/(
+             12 + ((-7) 2^Rational[-1, 2] + 
+               5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+               2 6^Rational[1, 2])^2))^Rational[1, 2] - ((-7) 
+            2^Rational[-1, 2] + 5 2^Rational[1, 2]) (2 3^Rational[-1, 2] - 2 
+           3^Rational[1, 2]) (
+            12 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              2 6^Rational[1, 2])^2)^
+           Rational[-1, 2])^(-1) ((-2) (6/(
+            12 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              2 6^Rational[1, 2])^2))^
+           Rational[1, 2] + ((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2]) (
+           2 3^Rational[-1, 2] - 2 
+           3^Rational[1, 2]) (
+            12 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              2 6^Rational[1, 2])^2)^Rational[-1, 2])}, {-(2/(2 + 
+          Rational[
+            1, 96] ((-7) 2^Rational[-1, 2] + 
+             5 2^Rational[1, 2])^2 ((-2) 3^Rational[-1, 2] + 
+             2 3^Rational[1, 2])^2 (((-4) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2] + 
+              2 3^Rational[
+                 1, 2] (((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+                2^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + (
+              10 Rational[2, 3]^Rational[1, 2] - 3 
+              Rational[3, 2]^
+               Rational[1, 2] + (3 Rational[3, 2]^Rational[1, 2] - 2 
+                6^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2)))^Rational[1, 2], 
+        Rational[-1, 4] ((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2]) (
+         2 3^Rational[-1, 2] - 2 
+         3^Rational[1, 2]) (
+          6 (((-4) 3^Rational[-1, 2] + 2 3^Rational[1, 2] + 
+              2 3^Rational[
+                 1, 2] (((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+                2^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + (
+              10 Rational[2, 3]^Rational[1, 2] - 3 
+              Rational[3, 2]^
+               Rational[1, 2] + (3 Rational[3, 2]^Rational[1, 2] - 2 
+                6^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + 
+                2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                  Rational[3, 2]^Rational[1, 2]) ((-3) 
+                   Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2)^(-1) (2 + 
+           Rational[
+             1, 96] ((-7) 2^Rational[-1, 2] + 
+              5 2^Rational[1, 2])^2 ((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2])^2 (((-4) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2] + 
+               2 3^Rational[
+                  1, 2] (((-7) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + 
+                 2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                   Rational[3, 2]^Rational[1, 2]) ((-3) 
+                    Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+                12 + ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  2 6^Rational[1, 2])^2))^2 + ((-7) 2^Rational[-1, 2] + 
+               5 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+                 2^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                   5 2^Rational[1, 2])^2 + 
+                 2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                   Rational[3, 2]^Rational[1, 2]) ((-3) 
+                    Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+                12 + ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  2 6^Rational[1, 2])^2))^2 + (
+               10 Rational[2, 3]^Rational[1, 2] - 3 
+               Rational[3, 2]^
+                Rational[1, 2] + (3 Rational[3, 2]^Rational[1, 2] - 2 
+                 6^Rational[1, 2]) (((-7) 2^Rational[-1, 2] + 
+                   5 2^Rational[1, 2])^2 + 
+                 2 3^Rational[1, 2] (4 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (10 Rational[2, 3]^Rational[1, 2] - 3 
+                   Rational[3, 2]^Rational[1, 2]) ((-3) 
+                    Rational[3, 2]^Rational[1, 2] + 2 6^Rational[1, 2]))/(
+                12 + ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  2 6^Rational[1, 2])^2))^2)))^Rational[-1, 2]}}, {{0, 0}, {1,
+        0}, {0.2773500981126144, 0.9607689228305227}, {
+       0, 1.}, {-0.4999999999999998, 0.866025403784439}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 0}, {
+       3 (2/(18 + 
+          Rational[
+            2, 3] ((-3) Rational[3, 2]^Rational[1, 2] + 
+             2 6^Rational[1, 2])^2 (((-3) Rational[3, 2]^Rational[1, 2] + 
+               2 6^Rational[1, 2])^2 (12 + 
+               2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2]))^2 (
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2)^(-2) + (
+              2 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+                2^Rational[1, 2]) (12 + 
+                2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + 
+            Abs[2 3^Rational[1, 2] - 2 
+               3^Rational[1, 2] (12 + 
+                2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2)]^2)))^
+         Rational[1, 2], ((-3) Rational[3, 2]^Rational[1, 2] + 
+         2 6^Rational[1, 2]) (
+          Rational[
+           2, 3] (((-3) Rational[3, 2]^Rational[1, 2] + 
+              2 6^Rational[1, 2])^2 (12 + 
+              2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2]))^2 (
+              12 + ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                2 6^Rational[1, 2])^2)^(-2) + (
+             2 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 2^Rational[1, 2]) (
+               12 + 2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2]))/(
+              12 + ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                2 6^Rational[1, 2])^2))^2 + 
+           Abs[2 3^Rational[1, 2] - 2 
+              3^Rational[1, 2] (12 + 
+               2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2]))/(
+              12 + ((-7) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                2 6^Rational[1, 2])^2)]^2)/(18 + 
+          Rational[
+            2, 3] ((-3) Rational[3, 2]^Rational[1, 2] + 
+             2 6^Rational[1, 2])^2 (((-3) Rational[3, 2]^Rational[1, 2] + 
+               2 6^Rational[1, 2])^2 (12 + 
+               2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2]))^2 (
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2)^(-2) + (
+              2 2^Rational[1, 2] + (7 2^Rational[-1, 2] - 5 
+                2^Rational[1, 2]) (12 + 
+                2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2))^2 + 
+            Abs[2 3^Rational[1, 2] - 2 
+               3^Rational[1, 2] (12 + 
+                2 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2]))/(
+               12 + ((-7) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 2 6^Rational[1, 2])^2)]^2)))^Rational[1, 2]}, {
+       0, -(3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^(-1) ((-3) 
+          Rational[3, 2]^Rational[1, 2] + 6^Rational[1, 2])}}, {{0, 0}, {1, 
+       0}, {0.9486832980505138, 0.31622776601683783`}, {0, 1.}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 
+       0}, {(2/(
+         4 + ((-2) 3^Rational[-1, 2] + 
+           2 3^Rational[1, 2] - ((-2) 3^Rational[-1, 2] + 
+            2 3^Rational[1, 2]) (((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+              13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+             2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+             13 6^Rational[-1, 2])^2))^2 + (3 Rational[3, 2]^Rational[1, 2] - 
+           7 6^Rational[-1, 2] - (3 Rational[3, 2]^Rational[1, 2] - 13 
+            6^Rational[-1, 2]) (((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+              13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+             2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+             13 6^Rational[-1, 2])^2))^2))^
+        Rational[
+         1, 2], ((
+          2 + ((-2) 3^Rational[-1, 2] + 
+            2 3^Rational[1, 2] - ((-2) 3^Rational[-1, 2] + 
+             2 3^Rational[1, 2]) (((-2) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+               7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+               13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              13 6^Rational[-1, 2])^2))^2 + (3 Rational[3, 2]^Rational[1, 2] - 
+            7 6^Rational[-1, 2] - (3 Rational[3, 2]^Rational[1, 2] - 13 
+             6^Rational[-1, 2]) (((-2) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+               7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+               13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              13 6^Rational[-1, 2])^2))^2)/(
+         4 + ((-2) 3^Rational[-1, 2] + 
+           2 3^Rational[1, 2] - ((-2) 3^Rational[-1, 2] + 
+            2 3^Rational[1, 2]) (((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+              13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+             2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+             13 6^Rational[-1, 2])^2))^2 + (3 Rational[3, 2]^Rational[1, 2] - 
+           7 6^Rational[-1, 2] - (3 Rational[3, 2]^Rational[1, 2] - 13 
+            6^Rational[-1, 2]) (((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+              7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+              13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+             2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+             13 6^Rational[-1, 2])^2))^2))^Rational[1, 2]}, {0, 
+       1}, {-(2 (Rational[1, 2] + 
+           Rational[1, 2] ((-7) 2^Rational[-1, 2] + 4 2^Rational[1, 2])^2 (
+             2 + ((-2) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2] - ((-2) 3^Rational[-1, 2] + 
+                2 3^Rational[1, 2]) (((-2) 3^Rational[-1, 2] + 
+                  2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+                 2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 13 6^Rational[-1, 2])^2))^2 + (
+               3 Rational[3, 2]^Rational[1, 2] - 7 
+               6^Rational[-1, 2] - (3 Rational[3, 2]^Rational[1, 2] - 13 
+                6^Rational[-1, 2]) (((-2) 3^Rational[-1, 2] + 
+                  2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+                 2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 13 6^Rational[-1, 2])^2))^2)))^
+         Rational[-1, 2], ((-7) 2^Rational[-1, 2] + 
+         4 2^Rational[1, 2]) (
+          2 (2 + ((-2) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2] - ((-2) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2]) (((-2) 3^Rational[-1, 2] + 
+                 2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+                2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                13 6^Rational[-1, 2])^2))^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 7 
+              6^Rational[-1, 2] - (3 Rational[3, 2]^Rational[1, 2] - 13 
+               6^Rational[-1, 2]) (((-2) 3^Rational[-1, 2] + 
+                 2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+                2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                13 6^Rational[-1, 2])^2))^2)^(-1) (Rational[1, 2] + 
+           Rational[1, 2] ((-7) 2^Rational[-1, 2] + 4 2^Rational[1, 2])^2 (
+             2 + ((-2) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2] - ((-2) 3^Rational[-1, 2] + 
+                2 3^Rational[1, 2]) (((-2) 3^Rational[-1, 2] + 
+                  2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+                 2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 13 6^Rational[-1, 2])^2))^2 + (
+               3 Rational[3, 2]^Rational[1, 2] - 7 
+               6^Rational[-1, 2] - (3 Rational[3, 2]^Rational[1, 2] - 13 
+                6^Rational[-1, 2]) (((-2) 3^Rational[-1, 2] + 
+                  2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  7 6^Rational[-1, 2]) ((-3) Rational[3, 2]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2]))/(((-2) 3^Rational[-1, 2] + 
+                 2 3^Rational[1, 2])^2 + ((-3) Rational[3, 2]^Rational[1, 2] + 
+                 13 6^Rational[-1, 2])^2))^2)))^Rational[-1, 2]}}, {{0, 0}, {
+       1, 0}, {0.5, 0.8660254037844386}, {0, 1}, {-0.49999999999999933`, 
+       0.866025403784439}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 0}, {
+       2 (2/(8 + Rational[1, 96] (
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2) (
+             2 (13 2^Rational[-1, 2] - 4 
+               2^Rational[1, 2]) (3/(
+                12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                  3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+               Rational[1, 2] - (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+              8 3^Rational[-1, 2] - 2 
+              3^Rational[1, 2]) (
+               12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                 3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+              Rational[-1, 2])^2 (((-8) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2] + 
+              2 3^Rational[1, 2] (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2 + (13 2^Rational[-1, 2] - 4 
+              2^Rational[1, 2] + ((-11) 2^Rational[-1, 2] + 
+                4 2^Rational[1, 2]) (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2 + ((-7) 6^Rational[-1, 2] + 
+              6^Rational[1, 2] - ((-3) Rational[3, 2]^Rational[1, 2] + 
+               6^Rational[1, 2]) (
+                12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                  3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                 2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                 2^Rational[1, 2]) + 
+               2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                 3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                 Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                 Rational[1, 2])))^2)))^Rational[1, 2], 
+        Rational[-1, 
+          4] ((-2) (13 2^Rational[-1, 2] - 4 
+           2^Rational[1, 2]) (3/(
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+           Rational[1, 2] + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+           8 3^Rational[-1, 2] - 2 
+           3^Rational[1, 2]) (
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+           Rational[-1, 2]) (
+          6 (12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^
+              Rational[1, 2])^2)^(-1) (((-8) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2] + 
+              2 3^Rational[1, 2] (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2 + (13 2^Rational[-1, 2] - 4 
+              2^Rational[1, 2] + ((-11) 2^Rational[-1, 2] + 
+                4 2^Rational[1, 2]) (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2 + ((-7) 6^Rational[-1, 2] + 
+              6^Rational[1, 2] - ((-3) Rational[3, 2]^Rational[1, 2] + 
+               6^Rational[1, 2]) (
+                12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                  3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                 2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                 2^Rational[1, 2]) + 
+               2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                 3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                 Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                 Rational[1, 2])))^2)^(-1) (8 + 
+           Rational[1, 96] (
+             12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+               3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2) (
+              2 (13 2^Rational[-1, 2] - 4 
+                2^Rational[1, 2]) (3/(
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+                Rational[1, 2] - (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+               8 3^Rational[-1, 2] - 2 
+               3^Rational[1, 2]) (
+                12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                  3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+               Rational[-1, 2])^2 (((-8) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2] + 
+               2 3^Rational[1, 2] (
+                  12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                    3 Rational[3, 2]^Rational[1, 2] - 6^
+                    Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) + 
+                 2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                   Rational[1, 2])))^2 + (13 2^Rational[-1, 2] - 4 
+               2^Rational[1, 2] + ((-11) 2^Rational[-1, 2] + 
+                 4 2^Rational[1, 2]) (
+                  12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                    3 Rational[3, 2]^Rational[1, 2] - 6^
+                    Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) + 
+                 2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                   Rational[1, 2])))^2 + ((-7) 6^Rational[-1, 2] + 
+               6^Rational[1, 2] - ((-3) Rational[3, 2]^Rational[1, 2] + 
+                6^Rational[1, 2]) (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2)))^Rational[-1, 2]}, {
+       0, -(2 (11 2^Rational[-1, 2] - 4 
+            2^Rational[1, 2]) (3/(
+             12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+               3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+            Rational[1, 2] - (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+           4 3^Rational[-1, 2] - 2 
+           3^Rational[1, 2]) (
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+           Rational[-1, 2])^(-1) ((-2) (11 2^Rational[-1, 2] - 4 
+           2^Rational[1, 2]) (3/(
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+           Rational[1, 2] + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+           4 3^Rational[-1, 2] - 2 
+           3^Rational[1, 2]) (
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+           Rational[-1, 2])}, {-(
+          2 (Rational[1, 2] + 
+           Rational[1, 96] (
+             12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+               3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2) (
+              2 (9 2^Rational[-1, 2] - 4 
+                2^Rational[1, 2]) (3/(
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+                Rational[1, 2] - (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+               4 3^Rational[-1, 2] - 2 
+               3^Rational[1, 2]) (
+                12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                  3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+               Rational[-1, 2])^2 (((-8) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2] + 
+               2 3^Rational[1, 2] (
+                  12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                    3 Rational[3, 2]^Rational[1, 2] - 6^
+                    Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) + 
+                 2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                   Rational[1, 2])))^2 + (13 2^Rational[-1, 2] - 4 
+               2^Rational[1, 2] + ((-11) 2^Rational[-1, 2] + 
+                 4 2^Rational[1, 2]) (
+                  12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                    3 Rational[3, 2]^Rational[1, 2] - 6^
+                    Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) + 
+                 2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                   Rational[1, 2])))^2 + ((-7) 6^Rational[-1, 2] + 
+               6^Rational[1, 2] - ((-3) Rational[3, 2]^Rational[1, 2] + 
+                6^Rational[1, 2]) (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2)))^Rational[-1, 2], 
+        Rational[-1, 
+          4] ((-2) (9 2^Rational[-1, 2] - 4 
+           2^Rational[1, 2]) (3/(
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+           Rational[1, 2] + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+           4 3^Rational[-1, 2] - 2 
+           3^Rational[1, 2]) (
+            12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+           Rational[-1, 2]) (
+          6 (12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+              3 Rational[3, 2]^Rational[1, 2] - 6^
+              Rational[1, 2])^2)^(-1) (((-8) 3^Rational[-1, 2] + 
+              2 3^Rational[1, 2] + 
+              2 3^Rational[1, 2] (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2 + (13 2^Rational[-1, 2] - 4 
+              2^Rational[1, 2] + ((-11) 2^Rational[-1, 2] + 
+                4 2^Rational[1, 2]) (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2 + ((-7) 6^Rational[-1, 2] + 
+              6^Rational[1, 2] - ((-3) Rational[3, 2]^Rational[1, 2] + 
+               6^Rational[1, 2]) (
+                12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                  3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                 2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                 2^Rational[1, 2]) + 
+               2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                 3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                 Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                 Rational[1, 2])))^2)^(-1) (Rational[1, 2] + 
+           Rational[1, 96] (
+             12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+               3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2) (
+              2 (9 2^Rational[-1, 2] - 4 
+                2^Rational[1, 2]) (3/(
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2))^
+                Rational[1, 2] - (11 2^Rational[-1, 2] - 4 2^Rational[1, 2]) (
+               4 3^Rational[-1, 2] - 2 
+               3^Rational[1, 2]) (
+                12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                  3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
+               Rational[-1, 2])^2 (((-8) 3^Rational[-1, 2] + 
+               2 3^Rational[1, 2] + 
+               2 3^Rational[1, 2] (
+                  12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                    3 Rational[3, 2]^Rational[1, 2] - 6^
+                    Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) + 
+                 2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                   Rational[1, 2])))^2 + (13 2^Rational[-1, 2] - 4 
+               2^Rational[1, 2] + ((-11) 2^Rational[-1, 2] + 
+                 4 2^Rational[1, 2]) (
+                  12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                    3 Rational[3, 2]^Rational[1, 2] - 6^
+                    Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                   2^Rational[1, 2]) + 
+                 2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                   3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                   Rational[1, 2])))^2 + ((-7) 6^Rational[-1, 2] + 
+               6^Rational[1, 2] - ((-3) Rational[3, 2]^Rational[1, 2] + 
+                6^Rational[1, 2]) (
+                 12 + (11 2^Rational[-1, 2] - 4 2^Rational[1, 2])^2 + (
+                   3 Rational[3, 2]^Rational[1, 2] - 6^
+                   Rational[1, 2])^2)^(-1) ((11 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) (13 2^Rational[-1, 2] - 4 
+                  2^Rational[1, 2]) + 
+                2 3^Rational[1, 2] (8 3^Rational[-1, 2] - 2 
+                  3^Rational[1, 2]) + (3 Rational[3, 2]^Rational[1, 2] - 6^
+                  Rational[1, 2]) (7 6^Rational[-1, 2] - 6^
+                  Rational[1, 2])))^2)))^Rational[-1, 2]}}, {{0, 0}, {1, 0}, {
+       0.7559289460184546, 0.654653670707977}, {0, 1.}, {-0.5000000000000003, 
+       0.8660254037844384}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 0}, {2^Rational[-1, 2], 2^Rational[-1, 2]}, {0, 
+       1}}, {{0, 0}, {1, 0}, {0.7071067811865475, 0.7071067811865475}, {0, 
+       1}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 0}, {
+       Rational[1, 2], Rational[1, 2] 3^Rational[1, 2]}, {0, 1}, {
+       Rational[-1, 2], Rational[1, 2] 3^Rational[1, 2]}}, {{0, 0}, {1, 0}, {
+       0.5, 0.8660254037844386}, {0, 1}, {-0.5, 0.8660254037844386}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 
+       0}, {(2 (
+          Rational[
+           1, 2] + (
+             Rational[1, 2] 
+              3^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 6 2^Rational[1, 2]) + 
+             Rational[1, 2] ((-5) Rational[2, 3]^Rational[1, 2] + 
+               13 6^Rational[-1, 2]))^2 ((-3) (
+                Rational[
+                 3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2] + 
+             3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2])^(-2)))^
+        Rational[-1, 2], (
+         Rational[-1, 2] 
+          3^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 6 2^Rational[1, 2]) + 
+         Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+           6^Rational[-1, 2])) (
+          3 (Rational[
+              3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+               13 6^Rational[-1, 2] + 
+               Rational[1, 4] 
+                Rational[3, 2]^Rational[1, 2] (
+                 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2]) + 
+                 6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                   6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+               6 2^Rational[1, 2] + 
+               Rational[-1, 4] 
+                2^Rational[-1, 2] (
+                 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2]) + 
+                 6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                   6^Rational[-1, 2])))^2))^Rational[1, 2] - 
+          3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+              Rational[1, 4] 
+               Rational[3, 2]^Rational[1, 2] (
+                2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2]) + 
+                6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                  6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+              6 2^Rational[1, 2] + 
+              Rational[-1, 4] 
+               2^Rational[-1, 2] (
+                2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2]) + 
+                6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                  6^Rational[-1, 2])))^2))^Rational[1, 2])^(-1) (
+          Rational[
+           1, 2] + (
+             Rational[1, 2] 
+              3^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 6 2^Rational[1, 2]) + 
+             Rational[1, 2] ((-5) Rational[2, 3]^Rational[1, 2] + 
+               13 6^Rational[-1, 2]))^2 ((-3) (
+                Rational[
+                 3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2] + 
+             3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2])^(-2))^
+         Rational[-1, 2]}, {-(
+          2 (Rational[
+            1, 2] + (Rational[3, 2]^Rational[1, 2] + 
+              6^Rational[
+                1, 2])^2 ((-3) (
+                 Rational[
+                  3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+                   13 6^Rational[-1, 2] + 
+                   Rational[1, 4] 
+                    Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2] + 
+                   Rational[-1, 4] 
+                    2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2] + 
+              3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 
+                   13 6^Rational[-1, 2] + 
+                   Rational[1, 4] 
+                    Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2] + 
+                   Rational[-1, 4] 
+                    2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2])^(-2)))^
+         Rational[-1, 2], (-Rational[3, 2]^Rational[1, 2] - 6^
+         Rational[1, 2]) (
+          3 (Rational[
+              3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+               13 6^Rational[-1, 2] + 
+               Rational[1, 4] 
+                Rational[3, 2]^Rational[1, 2] (
+                 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2]) + 
+                 6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                   6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+               6 2^Rational[1, 2] + 
+               Rational[-1, 4] 
+                2^Rational[-1, 2] (
+                 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2]) + 
+                 6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                   6^Rational[-1, 2])))^2))^Rational[1, 2] - 
+          3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+              Rational[1, 4] 
+               Rational[3, 2]^Rational[1, 2] (
+                2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2]) + 
+                6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                  6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+              6 2^Rational[1, 2] + 
+              Rational[-1, 4] 
+               2^Rational[-1, 2] (
+                2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2]) + 
+                6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                  6^Rational[-1, 2])))^2))^Rational[1, 2])^(-1) (
+          Rational[
+           1, 2] + (Rational[3, 2]^Rational[1, 2] + 
+             6^Rational[
+               1, 2])^2 ((-3) (
+                Rational[
+                 3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2] + 
+             3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2])^(-2))^
+         Rational[-1, 2]}, {-(2/(2 + 
+          6 ((-3) (
+                Rational[
+                 3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2] + 
+             3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2])^(-2)))^
+         Rational[1, 2], -(
+          3 (Rational[
+              3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+               13 6^Rational[-1, 2] + 
+               Rational[1, 4] 
+                Rational[3, 2]^Rational[1, 2] (
+                 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2]) + 
+                 6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                   6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+               6 2^Rational[1, 2] + 
+               Rational[-1, 4] 
+                2^Rational[-1, 2] (
+                 2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                   6 2^Rational[1, 2]) + 
+                 6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                   6^Rational[-1, 2])))^2))^Rational[1, 2] - 
+          3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+              Rational[1, 4] 
+               Rational[3, 2]^Rational[1, 2] (
+                2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2]) + 
+                6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                  6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+              6 2^Rational[1, 2] + 
+              Rational[-1, 4] 
+               2^Rational[-1, 2] (
+                2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2]) + 
+                6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                  6^Rational[-1, 2])))^2))^Rational[1, 2])^(-1) (6/(2 + 
+          6 ((-3) (
+                Rational[
+                 3, 2]/(((-5) Rational[2, 3]^Rational[1, 2] + 
+                  13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2] + 
+             3 (6/(((-5) Rational[2, 3]^Rational[1, 2] + 13 6^Rational[-1, 2] + 
+                  Rational[1, 4] 
+                   Rational[3, 2]^Rational[1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2 + ((-7) 2^Rational[-1, 2] + 
+                  6 2^Rational[1, 2] + 
+                  Rational[-1, 4] 
+                   2^Rational[-1, 2] (
+                    2^Rational[1, 2] ((-7) 2^Rational[-1, 2] + 
+                    6 2^Rational[1, 2]) + 
+                    6^Rational[1, 2] (5 Rational[2, 3]^Rational[1, 2] - 13 
+                    6^Rational[-1, 2])))^2))^Rational[1, 2])^(-2)))^
+         Rational[1, 2]}}, {{0, 0}, {1, 0}, {0.18898223650461343`, 
+       0.9819805060619659}, {-0.18898223650461354`, 
+       0.981980506061966}, {-0.4999999999999998, 0.8660254037844388}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 
+       0}, {(2/(2 + 
+         Rational[1, 6] (
+           Rational[
+            4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+             10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2) (
+            4 (Rational[2, 3]/(
+               Rational[
+                4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2))^
+              Rational[1, 2] - 
+            2 ((-9) 2^Rational[-1, 2] + 
+             5 2^Rational[1, 2]) (
+              3 (Rational[
+                4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2))^
+             Rational[-1, 2])^2 ((
+             2 2^Rational[1, 2] + (9 2^Rational[-1, 2] - 5 2^Rational[1, 2]) (
+               Rational[4, 3] + 
+               2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2]) - 4 
+               Rational[2, 3]^Rational[1, 2] (
+                10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+              Rational[
+               4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                10 Rational[2, 3]^Rational[1, 2] - 19 
+                6^Rational[-1, 2])^2))^2 + (
+             4 Rational[2, 3]^Rational[1, 2] - ((-10) 
+               Rational[2, 3]^Rational[1, 2] + 19 6^Rational[-1, 2]) (
+              Rational[4, 3] + 
+              2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                5 2^Rational[1, 2]) - 4 
+              Rational[2, 3]^Rational[1, 2] (10 Rational[2, 3]^Rational[1, 2] - 
+               19 6^Rational[-1, 2]))/(
+             Rational[
+              4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+               10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2))^2 + 
+           Abs[2 3^Rational[-1, 2] - 2 
+              3^Rational[-1, 2] (Rational[4, 3] + 
+               2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2]) - 4 
+               Rational[2, 3]^Rational[1, 2] (
+                10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+              Rational[
+               4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                10 Rational[2, 3]^Rational[1, 2] - 19 
+                6^Rational[-1, 2])^2)]^2)))^
+        Rational[
+         1, 2], -((-4) (Rational[2, 3]/(
+            Rational[
+             4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+              10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2))^
+           Rational[1, 2] + 
+         2 3^Rational[-1, 2] ((-9) 2^Rational[-1, 2] + 
+           5 2^Rational[1, 2]) (
+            Rational[
+             4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+              10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2)^
+           Rational[-1, 2]) (
+          6 (Rational[
+             4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+              10 Rational[2, 3]^Rational[1, 2] - 19 
+              6^Rational[-1, 2])^2)^(-1) ((
+              2 2^Rational[1, 2] + (9 2^Rational[-1, 2] - 5 
+                2^Rational[1, 2]) (Rational[4, 3] + 
+                2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2]) - 4 
+                Rational[2, 3]^Rational[1, 2] (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+               Rational[
+                4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 
+                 6^Rational[-1, 2])^2))^2 + (
+              4 Rational[2, 3]^Rational[1, 2] - ((-10) 
+                Rational[2, 3]^Rational[1, 2] + 19 6^Rational[-1, 2]) (
+               Rational[4, 3] + 
+               2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                 5 2^Rational[1, 2]) - 4 
+               Rational[2, 3]^Rational[1, 2] (
+                10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+              Rational[
+               4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                10 Rational[2, 3]^Rational[1, 2] - 19 
+                6^Rational[-1, 2])^2))^2 + 
+            Abs[2 3^Rational[-1, 2] - 2 
+               3^Rational[-1, 2] (Rational[4, 3] + 
+                2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2]) - 4 
+                Rational[2, 3]^Rational[1, 2] (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+               Rational[
+                4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 
+                 6^Rational[-1, 2])^2)]^2)^(-1) (2 + 
+           Rational[1, 6] (
+             Rational[
+              4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+               10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2) (
+              4 (Rational[2, 3]/(
+                 Rational[
+                  4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                   10 Rational[2, 3]^Rational[1, 2] - 19 
+                   6^Rational[-1, 2])^2))^Rational[1, 2] - 
+              2 ((-9) 2^Rational[-1, 2] + 
+               5 2^Rational[1, 2]) (
+                3 (Rational[
+                  4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                   10 Rational[2, 3]^Rational[1, 2] - 19 
+                   6^Rational[-1, 2])^2))^Rational[-1, 2])^2 ((
+               2 2^Rational[1, 2] + (9 2^Rational[-1, 2] - 5 
+                 2^Rational[1, 2]) (Rational[4, 3] + 
+                 2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                   5 2^Rational[1, 2]) - 4 
+                 Rational[2, 3]^Rational[1, 2] (
+                  10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+                Rational[
+                 4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                  10 Rational[2, 3]^Rational[1, 2] - 19 
+                  6^Rational[-1, 2])^2))^2 + (
+               4 Rational[2, 3]^Rational[1, 2] - ((-10) 
+                 Rational[2, 3]^Rational[1, 2] + 19 6^Rational[-1, 2]) (
+                Rational[4, 3] + 
+                2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                  5 2^Rational[1, 2]) - 4 
+                Rational[2, 3]^Rational[1, 2] (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+               Rational[
+                4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                 10 Rational[2, 3]^Rational[1, 2] - 19 
+                 6^Rational[-1, 2])^2))^2 + 
+             Abs[2 3^Rational[-1, 2] - 2 
+                3^Rational[-1, 2] (Rational[4, 3] + 
+                 2 2^Rational[1, 2] ((-9) 2^Rational[-1, 2] + 
+                   5 2^Rational[1, 2]) - 4 
+                 Rational[2, 3]^Rational[1, 2] (
+                  10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2]))/(
+                Rational[
+                 4, 3] + ((-9) 2^Rational[-1, 2] + 5 2^Rational[1, 2])^2 + (
+                  10 Rational[2, 3]^Rational[1, 2] - 19 
+                  6^Rational[-1, 2])^2)]^2)))^Rational[-1, 2]}, {0, 1}}, {{0, 
+       0}, {1, 0}, {0.31622776601683805`, 0.9486832980505137}, {0, 1}}]],
+    Axes->True], ",", 
+   GraphicsBox[
+    PolygonBox[
+     NCache[{{0, 0}, {1, 0}, {
+       5 (2 (Rational[
+            25, 2] + (13 2^Rational[-1, 2] - 5 
+             2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+             4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+              4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                 4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                 2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+             2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+              2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                 4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                 2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                6^Rational[1, 2])))^2))^
+         Rational[-1, 
+           2], (((13 2^Rational[-1, 2] - 5 
+            2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+            4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+             4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+               6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+            2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+             2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+               6^Rational[1, 2])))^2)/(
+         Rational[
+          25, 2] + (13 2^Rational[-1, 2] - 5 
+           2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+           4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+            4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+              4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+              6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+              6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+           2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+            2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+              4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+              6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+              6^Rational[1, 2])))^2))^
+        Rational[1, 2]}, {(
+         2 (Rational[
+           1, 2] + (13 2^Rational[-1, 2] - 5 
+            2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+            4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+             4 3^
+               Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+               6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+            2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+             2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+               6^Rational[1, 2])))^2))^
+        Rational[-1, 
+          2], (((13 2^Rational[-1, 2] - 5 
+            2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+            4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+             4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+               6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+            2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+             2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+               6^Rational[1, 2])))^2)/(
+         Rational[
+          1, 2] + (13 2^Rational[-1, 2] - 5 
+           2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+           4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+            4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+              4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+              6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+              6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+           2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+            2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+               6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+              4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+              6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+              6^Rational[1, 2])))^2))^
+        Rational[
+         1, 2]}, {-(
+          2 (Rational[
+            1, 2] + (11 2^Rational[-1, 2] - 5 2^Rational[1, 2])^2 (
+              13 2^Rational[-1, 2] - 5 
+              2^Rational[1, 2])^(-2) ((13 2^Rational[-1, 2] - 5 
+               2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                   4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                   2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                  4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                  2 6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                  6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+               2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+                2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                   4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                   2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                  4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                  2 6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                  6^Rational[1, 2])))^2)))^Rational[-1, 2], (
+         11 2^Rational[-1, 2] - 5 
+         2^Rational[1, 2]) (13 2^Rational[-1, 2] - 5 
+          2^Rational[
+            1, 2])^(-1) (((13 2^Rational[-1, 2] - 5 
+             2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+             4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+              4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                 4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                 2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+             2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+              2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                 4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                 2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 2 
+                6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                6^Rational[1, 2])))^2)/(
+          Rational[
+           1, 2] + (11 2^Rational[-1, 2] - 5 2^Rational[1, 2])^2 (
+             13 2^Rational[-1, 2] - 5 
+             2^Rational[1, 2])^(-2) ((13 2^Rational[-1, 2] - 5 
+              2^Rational[1, 2])^2 + ((-4) 3^Rational[-1, 2] + 
+              4 3^Rational[1, 2] - ((-4) 3^Rational[-1, 2] + 
+               4 3^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                  4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                  2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                 4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                 2 6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                 6^Rational[1, 2])))^2 + ((-11) 6^Rational[-1, 2] + 
+              2 6^Rational[1, 2] - ((-10) Rational[2, 3]^Rational[1, 2] + 
+               2 6^Rational[1, 2]) (((-4) 3^Rational[-1, 2] + 
+                  4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                  2 6^Rational[1, 2])^2)^(-1) (((-4) 3^Rational[-1, 2] + 
+                 4 3^Rational[1, 2])^2 + (10 Rational[2, 3]^Rational[1, 2] - 
+                 2 6^Rational[1, 2]) (11 6^Rational[-1, 2] - 2 
+                 6^Rational[1, 2])))^2)))^Rational[1, 2]}}, {{0, 0}, {1, 0}, {
+       0.6933752452815366, 0.7205766921228921}, {0.18898223650461363`, 
+       0.9819805060619656}, {-0.5000000000000008, 0.8660254037844384}}]],
+    Axes->True]}], "}"}]], "Output",
+ CellChangeTimes->{{3.750468619033845*^9, 3.750468689018586*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1680, 1005},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->2.,
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 108, 1, 182, "Title"],
+Cell[CellGroupData[{
+Cell[713, 27, 98, 1, 127, "Section"],
+Cell[814, 30, 4387, 113, 486, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5238, 148, 110, 1, 95, "Section"],
+Cell[5351, 151, 3181, 90, 976, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8569, 246, 111, 1, 127, "Section"],
+Cell[8683, 249, 490, 9, 212, "Text"],
+Cell[9176, 260, 4799, 117, 1392, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14012, 382, 96, 1, 127, "Section"],
+Cell[CellGroupData[{
+Cell[14133, 387, 627, 17, 105, "Input"],
+Cell[14763, 406, 6863, 122, 1516, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21675, 534, 95, 1, 127, "Section"],
+Cell[CellGroupData[{
+Cell[21795, 539, 510, 13, 146, "Input"],
+Cell[22308, 554, 78430, 1401, 1248, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
