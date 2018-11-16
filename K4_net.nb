@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     41332,       1056]
-NotebookOptionsPosition[     39949,       1002]
-NotebookOutlinePosition[     40329,       1019]
-CellTagsIndexPosition[     40286,       1016]
+NotebookDataLength[     42185,       1070]
+NotebookOptionsPosition[     40800,       1016]
+NotebookOutlinePosition[     41179,       1033]
+CellTagsIndexPosition[     41136,       1030]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -378,7 +378,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.750466977294009*^9, 3.7504670476974916`*^9}, {
   3.750467206262754*^9, 3.750467262433597*^9}, {3.7513373998813267`*^9, 
   3.751337401339201*^9}}]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -553,19 +553,14 @@ Cell[BoxData[{
    RowBox[{"Map", "[", 
     RowBox[{"unfoldFacet", ",", "facetsTransformed"}], "]"}]}], 
   ";"}]}], "Input",
- CellChangeTimes->{{3.750467741127838*^9, 3.750467893265045*^9}, {
-  3.750467949330676*^9, 3.7504680844389133`*^9}, {3.7504681195371647`*^9, 
-  3.750468591105225*^9}, {3.750468648225575*^9, 3.750468654375972*^9}, {
-  3.751336196945129*^9, 3.751336200988673*^9}, {3.751336236479363*^9, 
-  3.751336257743373*^9}, {3.751336336482594*^9, 3.751336336601883*^9}, {
-  3.7513374337396097`*^9, 3.751337443015918*^9}, {3.7513374923647003`*^9, 
-  3.7513375287388153`*^9}, {3.7513375910292187`*^9, 3.751337591692593*^9}, {
-  3.7513384528188972`*^9, 3.751338480179389*^9}, {3.751338593104103*^9, 
-  3.751338668952569*^9}, {3.751338735810725*^9, 3.751338750302108*^9}, {
-  3.7513395807208*^9, 3.751340001457595*^9}, {3.751340085091484*^9, 
-  3.7513401286122513`*^9}, {3.751340174359666*^9, 3.751340221302409*^9}, {
-  3.751340491814884*^9, 3.751340504847139*^9}, {3.751341508282613*^9, 
-  3.751341513683382*^9}}]
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQ7SC+RLj442tHh+oVaiD62ZRVuiB6CnefHYguMfjo
+BKIZ4x7XguiX5uytIPob+xkwXW83T0H682tHs8XyiiD6Y1i/KojedtJcA0Rn
+FvIbgegFTsJg+tEq890gOq0pYQ9YfHX3IRCdsET8OIiOef/gHIjeqfkNTGeY
+zLKSAdJ9e1ntQPSFEGUfEF1UPS8URJd9/BkLou+tOhkPok8LTD8Oouct0fsD
+ogveLmKTBdITpgvzgOikptOCIDps7UpxEN0hXGUJog9LS1uDaC3uzh0g2uWe
+6U4QXXHwmYY+kE4++hdMAwCb9qBn
+  "]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -698,11 +693,11 @@ Cell[BoxData[
      2.3094010767585034`}, {9.192388155425117, 2.8577380332470415`, 
      4.618802153517007}, {7.778174593052022, 3.674234614174767, 
      6.928203230275509}}]]},
-  ImageSize->{337.6233124655678, 420.50300730397254`},
+  ImageSize->{436.78793887636283`, 450.088252412821},
   ImageSizeRaw->Automatic,
-  ViewPoint->{1.26673642382069, -2.6192023975368794`, 1.7277608727202478`},
-  ViewVertical->{0.028572120698773514`, -0.09764836143601609, 
-   1.0553824233488105`}]], "Output",
+  ViewPoint->{2.0898280895993557`, -0.829388584541483, 2.52878095764615},
+  ViewVertical->{0.17705220750480333`, 0.5041359981633752, 
+   0.9067249394479232}]], "Output",
  CellChangeTimes->{{3.7504673433575087`*^9, 3.750467347015688*^9}, {
    3.750471776659039*^9, 3.750471799383008*^9}, 3.7513388833207912`*^9, 
    3.7513389298820953`*^9, {3.751339256056466*^9, 3.751339273745352*^9}, 
@@ -721,27 +716,47 @@ Cell["Render Net", "Section",
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"Table", "[", "\[IndentingNewLine]", 
+Cell[BoxData[{
+ RowBox[{
   RowBox[{
+   RowBox[{"Clear", "[", 
+    RowBox[{"drawNet", ",", "r"}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"r", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"drawNet", "[", "i_", "]"}], ":=", 
    RowBox[{"Graphics", "[", 
-    RowBox[{"Polygon", "[", 
-     RowBox[{"facetsUnfolded", "[", 
-      RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"{", 
-    RowBox[{"i", ",", "1", ",", 
-     RowBox[{"Length", "[", "facetsUnfolded", "]"}]}], "}"}]}], 
-  "]"}]], "Input",
+    RowBox[{
+     RowBox[{"Polygon", "[", 
+      RowBox[{"facetsUnfolded", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "r"}], ",", "r"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "r"}], ",", "r"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Row", "@", 
+  RowBox[{"Array", "[", 
+   RowBox[{"drawNet", ",", 
+    RowBox[{"Length", "[", "facetsUnfolded", "]"}]}], "]"}]}]}], "Input",
  CellChangeTimes->{{3.7504685956842937`*^9, 3.750468688675775*^9}, {
   3.751338887506728*^9, 3.751338938172249*^9}, {3.751340535526383*^9, 
   3.751340566175777*^9}, {3.751340629701797*^9, 3.751340770994788*^9}, {
-  3.751340815596489*^9, 3.75134081954672*^9}}],
+  3.751340815596489*^9, 3.75134081954672*^9}, {3.751376927205205*^9, 
+  3.7513769298441277`*^9}, {3.7513770525570793`*^9, 3.751377174554068*^9}, {
+  3.7513772471376333`*^9, 3.751377497310335*^9}}],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   GraphicsBox[
+ TemplateBox[{GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {3 2^Rational[1, 2], 0}, {
        2^Rational[
@@ -777,24 +792,22 @@ Cell[BoxData[
              2 6^Rational[1, 2])^2)^Rational[-1, 2])}, {-2^Rational[1, 2], 6^
         Rational[1, 2]}}, {{0, 0}, {4.242640687119286, 0}, {
        1.4142135623730951`, 4.898979485566361}, {
-       0, 4.898979485566359}, {-1.4142135623730951`, 2.449489742783178}}]]], 
-   ",", 
-   GraphicsBox[
+       0, 4.898979485566359}, {-1.4142135623730951`, 2.449489742783178}}]], 
+    PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {3 2^Rational[1, 2], 0}, {
        3 2^Rational[1, 2], 2^Rational[1, 2]}, {0, 2^Rational[1, 2]}}, {{0, 
        0}, {4.242640687119286, 0}, {4.242640687119286, 1.4142135623730951`}, {
-       0, 1.4142135623730951`}}]]], ",", 
-   GraphicsBox[
+       0, 1.4142135623730951`}}]], PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> 
+    Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {2 2^Rational[1, 2], 0}, {
        2^Rational[1, 2], 6^Rational[1, 2]}, {
        0, 6^Rational[1, 2]}, {-2^Rational[-1, 2], Rational[3, 2]^
         Rational[1, 2]}}, {{0, 0}, {2.8284271247461903`, 0}, {
        1.4142135623730951`, 2.449489742783178}, {
-       0, 2.449489742783178}, {-0.7071067811865475, 1.224744871391589}}]]], 
-   ",", 
-   GraphicsBox[
+       0, 2.449489742783178}, {-0.7071067811865475, 1.224744871391589}}]], 
+    PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {3 2^Rational[1, 2], 0}, {
        2 2^Rational[1, 2], -(2/(
@@ -839,24 +852,22 @@ Cell[BoxData[
               3 Rational[3, 2]^Rational[1, 2] - 6^Rational[1, 2])^2)^
            Rational[-1, 2])}}, {{0, 0}, {4.242640687119286, 0}, {
        2.8284271247461903`, 2.449489742783177}, {
-       0, 2.449489742783176}, {-0.7071067811865475, 1.2247448713915876`}}]]], 
-   ",", 
-   GraphicsBox[
+       0, 2.449489742783176}, {-0.7071067811865475, 1.2247448713915876`}}]], 
+    PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {2^Rational[1, 2], 0}, {
        2^Rational[1, 2], 2^Rational[1, 2]}, {0, 2^Rational[1, 2]}}, {{0, 0}, {
        1.4142135623730951`, 0}, {1.4142135623730951`, 1.4142135623730951`}, {
-       0, 1.4142135623730951`}}]]], ",", 
-   GraphicsBox[
+       0, 1.4142135623730951`}}]], PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> 
+    Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {2 2^Rational[1, 2], 0}, {
        2^Rational[1, 2], 6^Rational[1, 2]}, {
        0, 6^Rational[1, 2]}, {-2^Rational[-1, 2], Rational[3, 2]^
         Rational[1, 2]}}, {{0, 0}, {2.8284271247461903`, 0}, {
        1.4142135623730951`, 2.449489742783178}, {
-       0, 2.449489742783178}, {-0.7071067811865475, 1.224744871391589}}]]], 
-   ",", 
-   GraphicsBox[
+       0, 2.449489742783178}, {-0.7071067811865475, 1.224744871391589}}]], 
+    PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {2 2^Rational[1, 2], 0}, {
        2^Rational[-1, 2], 3 
@@ -864,8 +875,8 @@ Cell[BoxData[
         Rational[3, 2]^Rational[1, 2]}, {-2^Rational[1, 2], 6^
         Rational[1, 2]}}, {{0, 0}, {2.8284271247461903`, 0}, {
        0.7071067811865475, 3.674234614174767}, {-0.7071067811865475, 
-       3.674234614174767}, {-1.4142135623730951`, 2.449489742783178}}]]], ",", 
-   GraphicsBox[
+       3.674234614174767}, {-1.4142135623730951`, 2.449489742783178}}]], 
+    PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {2^Rational[1, 2], 0}, {
        2^Rational[
@@ -886,8 +897,8 @@ Cell[BoxData[
               10 Rational[2, 3]^Rational[1, 2] - 19 6^Rational[-1, 2])^2)^
            Rational[-1, 2])}, {0, 3 2^Rational[1, 2]}}, {{0, 0}, {
        1.4142135623730951`, 0}, {1.4142135623730951`, 4.242640687119283}, {
-       0, 4.242640687119286}}]]], ",", 
-   GraphicsBox[
+       0, 4.242640687119286}}]], PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> 
+    Small],GraphicsBox[
     PolygonBox[
      NCache[{{0, 0}, {4 2^Rational[1, 2], 0}, {
        5 2^Rational[-1, 2], 3 Rational[3, 2]^Rational[1, 2]}, {
@@ -895,12 +906,15 @@ Cell[BoxData[
         Rational[3, 2]^Rational[1, 2]}, {-2^Rational[-1, 2], Rational[3, 2]^
         Rational[1, 2]}}, {{0, 0}, {5.656854249492381, 0}, {
        3.5355339059327373`, 3.674234614174767}, {0.7071067811865475, 
-       3.674234614174767}, {-0.7071067811865475, 1.224744871391589}}]]]}], 
-  "}"}]], "Output",
+       3.674234614174767}, {-0.7071067811865475, 1.224744871391589}}]], 
+    PlotRange -> {{-5, 5}, {-5, 5}}, ImageSize -> Small]},
+  "RowDefault"]], "Output",
  CellChangeTimes->{
   3.751338938433134*^9, 3.75134007304484*^9, 3.751340521340722*^9, {
    3.7513406402811327`*^9, 3.75134066466154*^9}, {3.751340710550653*^9, 
-   3.7513407712679167`*^9}, 3.751340819846946*^9}]
+   3.7513407712679167`*^9}, 3.751340819846946*^9, {3.751377075074664*^9, 
+   3.751377095916254*^9}, 3.751377132388324*^9, {3.751377243320032*^9, 
+   3.751377284754668*^9}, {3.751377349052898*^9, 3.751377497707676*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1000,7 +1014,7 @@ Cell[BoxData[
 }, Closed]]
 }, Open  ]]
 },
-WindowSize->{1680, 1005},
+WindowSize->{1280, 755},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 Magnification->1.25,
 FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
@@ -1022,39 +1036,39 @@ Cell[CellGroupData[{
 Cell[580, 22, 108, 1, 114, "Title"],
 Cell[CellGroupData[{
 Cell[713, 27, 98, 1, 80, "Section"],
-Cell[814, 30, 4387, 113, 196, "Input"]
+Cell[814, 30, 4387, 113, 300, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[5238, 148, 110, 1, 80, "Section"],
-Cell[5351, 151, 3589, 134, 300, "Text"],
+Cell[5351, 151, 3589, 134, 327, "Text"],
 Cell[8943, 287, 3278, 92, 622, "Input"]
-}, Open  ]],
+}, Closed]],
 Cell[CellGroupData[{
-Cell[12258, 384, 111, 1, 80, "Section"],
+Cell[12258, 384, 111, 1, 62, "Section"],
 Cell[12372, 387, 975, 20, 204, "Text"],
-Cell[13350, 409, 6915, 158, 1168, "Input"]
+Cell[13350, 409, 6394, 153, 1168, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20302, 572, 96, 1, 80, "Section"],
+Cell[19781, 567, 96, 1, 80, "Section"],
 Cell[CellGroupData[{
-Cell[20423, 577, 678, 11, 39, "Input"],
-Cell[21104, 590, 7200, 122, 544, "Output"]
+Cell[19902, 572, 678, 11, 39, "Input"],
+Cell[20583, 585, 7193, 122, 581, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[28353, 718, 95, 1, 80, "Section"],
+Cell[27825, 713, 95, 1, 80, "Section"],
 Cell[CellGroupData[{
-Cell[28473, 723, 645, 15, 92, "Input"],
-Cell[29121, 740, 7933, 162, 527, "Output"]
+Cell[27945, 718, 1439, 37, 196, "Input"],
+Cell[29387, 757, 8518, 159, 511, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37103, 908, 92, 1, 80, "Section"],
+Cell[37954, 922, 92, 1, 80, "Section"],
 Cell[CellGroupData[{
-Cell[37220, 913, 1410, 38, 300, "Input"],
-Cell[38633, 953, 387, 12, 68, "Output"],
-Cell[39023, 967, 371, 11, 58, "Output"],
-Cell[39397, 980, 512, 17, 91, "Output"]
+Cell[38071, 927, 1410, 38, 375, "Input"],
+Cell[39484, 967, 387, 12, 85, "Output"],
+Cell[39874, 981, 371, 11, 72, "Output"],
+Cell[40248, 994, 512, 17, 113, "Output"]
 }, Open  ]]
 }, Closed]]
 }, Open  ]]
