@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     41711,       1074]
-NotebookOptionsPosition[     40327,       1020]
-NotebookOutlinePosition[     40707,       1037]
-CellTagsIndexPosition[     40664,       1034]
+NotebookDataLength[     41332,       1056]
+NotebookOptionsPosition[     39949,       1002]
+NotebookOutlinePosition[     40329,       1019]
+CellTagsIndexPosition[     40286,       1016]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -399,35 +399,13 @@ that basis.\n\n",
   FontWeight->"Bold"],
  " Does this actually yield a construction that fits together in 3D? I\
 \[CloseCurlyQuote]ll have to print it out and check.\n\n",
- StyleBox["Idea: ",
+ StyleBox["Solution:",
   FontWeight->"Bold"],
- "Each face is a 2D plane embedded in 3D space. After translating the face to \
-the origin, it\[CloseCurlyQuote]s vertices should satisfy ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{
-     StyleBox[
-      RowBox[{"a", "x"}], "TI"], "+", 
-     StyleBox[
-      RowBox[{"b", "y"}], "TI"], "+", 
-     StyleBox[
-      RowBox[{"c", "z"}], "TI"]}], "\[LongEqual]", "0"}], TraditionalForm]]],
- " for some ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    StyleBox["a", "TI"], ",", 
-    StyleBox["b", "TI"], ",", 
-    RowBox[{
-     StyleBox["c", "TI"], "\[Element]", 
-     StyleBox["R",
-      FontSlant->"Plain"]}]}], TraditionalForm]]],
- ". "
+ " Use custom algorithm for finding basis of plane."
 }], "Text",
  CellChangeTimes->{{3.7504675641295757`*^9, 3.750467726531357*^9}, {
   3.750471871033928*^9, 3.750471905785166*^9}, {3.751337594717033*^9, 
-  3.751337695346632*^9}}],
+  3.751337695346632*^9}, {3.751340901783187*^9, 3.7513409244459467`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -511,7 +489,10 @@ Cell[BoxData[{
        "\[IndentingNewLine]", "\[IndentingNewLine]", 
        RowBox[{"(*", "\[IndentingNewLine]", " ", 
         RowBox[{
-        "*", " ", "Convert", " ", "vector3", " ", "to", " ", "vector2"}], 
+         RowBox[{
+         "*", " ", "Convert", " ", "vector3", " ", "to", " ", "vector2"}], 
+         ",", " ", 
+         RowBox[{"in", " ", "terms", " ", "of", " ", "basis2"}]}], 
         "\[IndentingNewLine]", " ", "*)"}], "\[IndentingNewLine]", 
        RowBox[{"(*", " ", 
         RowBox[{
@@ -583,7 +564,8 @@ Cell[BoxData[{
   3.751338668952569*^9}, {3.751338735810725*^9, 3.751338750302108*^9}, {
   3.7513395807208*^9, 3.751340001457595*^9}, {3.751340085091484*^9, 
   3.7513401286122513`*^9}, {3.751340174359666*^9, 3.751340221302409*^9}, {
-  3.751340491814884*^9, 3.751340504847139*^9}}]
+  3.751340491814884*^9, 3.751340504847139*^9}, {3.751341508282613*^9, 
+  3.751341513683382*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1049,30 +1031,30 @@ Cell[8943, 287, 3278, 92, 622, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[12258, 384, 111, 1, 80, "Section"],
-Cell[12372, 387, 1509, 42, 206, "Text"],
-Cell[13884, 431, 6759, 154, 1168, "Input"]
+Cell[12372, 387, 975, 20, 204, "Text"],
+Cell[13350, 409, 6915, 158, 1168, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20680, 590, 96, 1, 80, "Section"],
+Cell[20302, 572, 96, 1, 80, "Section"],
 Cell[CellGroupData[{
-Cell[20801, 595, 678, 11, 39, "Input"],
-Cell[21482, 608, 7200, 122, 544, "Output"]
+Cell[20423, 577, 678, 11, 39, "Input"],
+Cell[21104, 590, 7200, 122, 544, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[28731, 736, 95, 1, 80, "Section"],
+Cell[28353, 718, 95, 1, 80, "Section"],
 Cell[CellGroupData[{
-Cell[28851, 741, 645, 15, 92, "Input"],
-Cell[29499, 758, 7933, 162, 527, "Output"]
+Cell[28473, 723, 645, 15, 92, "Input"],
+Cell[29121, 740, 7933, 162, 527, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37481, 926, 92, 1, 80, "Section"],
+Cell[37103, 908, 92, 1, 80, "Section"],
 Cell[CellGroupData[{
-Cell[37598, 931, 1410, 38, 300, "Input"],
-Cell[39011, 971, 387, 12, 68, "Output"],
-Cell[39401, 985, 371, 11, 58, "Output"],
-Cell[39775, 998, 512, 17, 91, "Output"]
+Cell[37220, 913, 1410, 38, 300, "Input"],
+Cell[38633, 953, 387, 12, 68, "Output"],
+Cell[39023, 967, 371, 11, 58, "Output"],
+Cell[39397, 980, 512, 17, 91, "Output"]
 }, Open  ]]
 }, Closed]]
 }, Open  ]]
