@@ -10,14 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17850,        445]
-NotebookOptionsPosition[     17453,        426]
-NotebookOutlinePosition[     17831,        443]
-CellTagsIndexPosition[     17788,        440]
+NotebookDataLength[     19648,        471]
+NotebookOptionsPosition[     19293,        453]
+NotebookOutlinePosition[     19671,        470]
+CellTagsIndexPosition[     19628,        467]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", "\[IndentingNewLine]", " ", 
@@ -110,7 +112,7 @@ Cell[BoxData[
                  RowBox[{"object3", "[", 
                   RowBox[{"[", "i", "]"}], "]"}], "[", 
                  RowBox[{"[", "j", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], ",",
-            "1"}], "]"}], ",", "\[IndentingNewLine]", 
+            "20"}], "]"}], ",", "\[IndentingNewLine]", 
          RowBox[{"{", 
           RowBox[{"j", ",", "1", ",", 
            RowBox[{"Length", "[", 
@@ -119,24 +121,29 @@ Cell[BoxData[
        "\[IndentingNewLine]", 
        RowBox[{"{", 
         RowBox[{"i", ",", "1", ",", 
-         RowBox[{"Length", "[", "object3", "]"}]}], "}"}]}], "]"}]}], 
-    ";"}]}]}]], "Input",
- CellChangeTimes->{{3.7513973453932543`*^9, 3.751397682588915*^9}, {
-  3.751397726360508*^9, 3.7513979465919867`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", "\[IndentingNewLine]", " ", 
-   RowBox[{
-   "*", " ", "Transform", " ", "4", "D", " ", "object", " ", "to", " ", "3", 
-    "D"}], "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
-  RowBox[{
+         RowBox[{"Length", "[", "object3", "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\[IndentingNewLine]", " ", 
+    RowBox[{
+    "*", " ", "Transform", " ", "4", "D", " ", "object", " ", "to", " ", "3", 
+     "D"}], "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Clear", "[", 
      RowBox[{"unfold4", ",", "object3Unfolded"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\[IndentingNewLine]", " ", 
+    RowBox[{
+     RowBox[{
+     "*", " ", "Transform", " ", "each", " ", "facet", " ", "from", " ", "4", 
+      "D", " ", "to", " ", "3", "D"}], ",", " ", 
+     RowBox[{
+     "forming", " ", "a", " ", "piece", " ", "of", " ", "the", " ", "net"}]}],
+     "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Clear", "[", 
+     RowBox[{"unfold4", ",", "facetsNet"}], "]"}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -145,11 +152,11 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"{", 
         RowBox[{
-        "origin4", ",", "unfold3", ",", "facet4Linear", ",", "b1", ",", "b2", 
-         ",", "b3", ",", "b3m", ",", "basis4Proto", ",", 
-         "\[IndentingNewLine]", "i", ",", "j", ",", "count", ",", "contained",
-          ",", "done"}], "}"}], ",", "\[IndentingNewLine]", 
-       "\[IndentingNewLine]", 
+        "origin4", ",", "facet4Linear", ",", "\[IndentingNewLine]", "i", ",", 
+         "j", ",", "count", ",", "valid", ",", "\[IndentingNewLine]", 
+         "basis4Proto", ",", "b1", ",", "b2", ",", "b3", ",", 
+         "\[IndentingNewLine]", "unfold3"}], "}"}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
        RowBox[{"(*", "\[IndentingNewLine]", " ", 
         RowBox[{
          RowBox[{
@@ -200,49 +207,72 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"i", "=", "1"}], ";", 
         RowBox[{"j", ":=", "2"}], ";", 
-        RowBox[{"count", "=", "0"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"count", "=", "0"}], ";", 
         RowBox[{"basis4Proto", "=", 
          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"While", "[", 
          RowBox[{
           RowBox[{"i", "\[LessEqual]", 
-           RowBox[{"Length", "[", "facet4", "]"}]}], ",", 
+           RowBox[{"Length", "[", "facet4Linear", "]"}]}], ",", 
           "\[IndentingNewLine]", 
           RowBox[{
            RowBox[{"While", "[", 
             RowBox[{
              RowBox[{"j", "\[LessEqual]", 
               RowBox[{"Length", "[", 
-               RowBox[{"facet4", "[", 
+               RowBox[{"facet4Linear", "[", 
                 RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
-             "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{
+               RowBox[{"make", " ", "sure", " ", "is", " ", 
+                RowBox[{"valid", ":", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"-", " ", "linearly"}], " ", "independent", " ", 
+                  "with", " ", "rest", " ", "of", " ", "basis"}]}]}], ",", 
+               " ", "\[IndentingNewLine]", "  ", 
+               RowBox[{
+                RowBox[{"-", " ", 
+                 RowBox[{"haven", "'"}]}], "t", " ", "already", " ", "found", 
+                " ", "all", " ", "the", " ", "basis", " ", "members", " ", 
+                "we", " ", "need"}], ",", "\[IndentingNewLine]", "  ", 
+               RowBox[{
+                RowBox[{"-", " ", "and"}], " ", "is", " ", "not", " ", "the", 
+                " ", "zero", " ", "vector"}]}], "\[IndentingNewLine]", "*)"}],
+              "\[IndentingNewLine]", 
              RowBox[{
               RowBox[{"v", "=", 
-               RowBox[{
-                RowBox[{"facet4", "[", 
-                 RowBox[{"[", "i", "]"}], "]"}], "[", 
-                RowBox[{"[", "j", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-              
-              RowBox[{"contained", "=", 
-               RowBox[{"ContainsAny", "[", 
-                RowBox[{"basis4Proto", ",", 
-                 RowBox[{"{", "v", "}"}]}], "]"}]}], ";", 
-              "\[IndentingNewLine]", 
-              RowBox[{"done", "=", 
-               RowBox[{"count", "\[GreaterEqual]", "3"}]}], ";", 
-              "\[IndentingNewLine]", 
-              RowBox[{"If", "[", 
-               RowBox[{
+               RowBox[{"N", "[", 
                 RowBox[{
-                 RowBox[{"!", "contained"}], "\[And]", 
-                 RowBox[{"!", "done"}]}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"facet4Linear", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"valid", "=", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"\[Not]", 
+                 RowBox[{"ContainsAny", "[", 
+                  RowBox[{"basis4Proto", ",", 
+                   RowBox[{"{", "v", "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+                "\[And]", 
+                RowBox[{"count", "<", "3"}], "\[IndentingNewLine]", "\[And]", 
+                
+                RowBox[{
+                 RowBox[{"Norm", "[", "v", "]"}], ">", "0"}]}]}], ";", 
+              "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"(*", " ", 
+               RowBox[{
+               "add", " ", "to", " ", "working", " ", "basis", " ", "if", " ",
+                 "valid"}], " ", "*)"}], "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{"valid", ",", "\[IndentingNewLine]", 
                 RowBox[{
                  RowBox[{"AppendTo", "[", 
                   RowBox[{"basis4Proto", ",", "v"}], "]"}], ";", 
                  "\[IndentingNewLine]", 
                  RowBox[{"count", "=", 
-                  RowBox[{"count", "+", "1"}]}], ";"}]}], 
-               "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"count", "+", "1"}]}], ";"}]}], "]"}], ";", 
+              "\[IndentingNewLine]", "\[IndentingNewLine]", 
               RowBox[{"j", "++"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
            RowBox[{"i", "++"}], ";", 
            RowBox[{"j", "=", "2"}], ";"}]}], "]"}], ";", 
@@ -272,13 +302,10 @@ Cell[BoxData[
          RowBox[{"unfold3", "[", "v_", "]"}], ":=", 
          RowBox[{"Block", "[", 
           RowBox[{
-           RowBox[{"{", 
-            RowBox[{"m", ",", "vp"}], "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"{", "m", "}"}], ",", "\[IndentingNewLine]", 
            RowBox[{
-            RowBox[{"vp", "=", 
-             RowBox[{"N", "[", "v", "]"}]}], ";", "\[IndentingNewLine]", 
             RowBox[{"m", "=", 
-             RowBox[{"RowReduce", "[", 
+             RowBox[{"N", "[", 
               RowBox[{"(", GridBox[{
                  {
                   RowBox[{"b1", "[", 
@@ -287,7 +314,7 @@ Cell[BoxData[
                    RowBox[{"[", "1", "]"}], "]"}], 
                   RowBox[{"b3", "[", 
                    RowBox[{"[", "1", "]"}], "]"}], 
-                  RowBox[{"vp", "[", 
+                  RowBox[{"v", "[", 
                    RowBox[{"[", "1", "]"}], "]"}]},
                  {
                   RowBox[{"b1", "[", 
@@ -296,7 +323,7 @@ Cell[BoxData[
                    RowBox[{"[", "2", "]"}], "]"}], 
                   RowBox[{"b3", "[", 
                    RowBox[{"[", "2", "]"}], "]"}], 
-                  RowBox[{"vp", "[", 
+                  RowBox[{"v", "[", 
                    RowBox[{"[", "2", "]"}], "]"}]},
                  {
                   RowBox[{"b1", "[", 
@@ -305,7 +332,7 @@ Cell[BoxData[
                    RowBox[{"[", "3", "]"}], "]"}], 
                   RowBox[{"b3", "[", 
                    RowBox[{"[", "3", "]"}], "]"}], 
-                  RowBox[{"vp", "[", 
+                  RowBox[{"v", "[", 
                    RowBox[{"[", "3", "]"}], "]"}]},
                  {
                   RowBox[{"b1", "[", 
@@ -314,25 +341,22 @@ Cell[BoxData[
                    RowBox[{"[", "4", "]"}], "]"}], 
                   RowBox[{"b3", "[", 
                    RowBox[{"[", "4", "]"}], "]"}], 
-                  RowBox[{"vp", "[", 
+                  RowBox[{"v", "[", 
                    RowBox[{"[", "4", "]"}], "]"}]}
                 }], ")"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"m", "=", 
+             RowBox[{"RowReduce", "[", "m", "]"}]}], ";", 
+            "\[IndentingNewLine]", 
             RowBox[{"Return", "[", 
-             RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{"Array", "[", 
               RowBox[{
-               RowBox[{
-                RowBox[{"m", "[", 
-                 RowBox[{"[", "1", "]"}], "]"}], "[", 
-                RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"m", "[", 
-                 RowBox[{"[", "2", "]"}], "]"}], "[", 
-                RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"m", "[", 
-                 RowBox[{"[", "3", "]"}], "]"}], "[", 
-                RowBox[{"[", "4", "]"}], "]"}]}], "\[IndentingNewLine]", 
-              "}"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";", 
+               RowBox[{"Function", "[", 
+                RowBox[{"i", ",", 
+                 RowBox[{
+                  RowBox[{"m", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "4", "]"}], "]"}]}], "]"}], ",", "3"}], "]"}], 
+             "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";", 
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"Return", "[", 
          RowBox[{"Table", "[", 
@@ -341,21 +365,21 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"unfold3", "[", 
               RowBox[{
-               RowBox[{"facet4", "[", 
+               RowBox[{"facet4Linear", "[", 
                 RowBox[{"[", "i", "]"}], "]"}], "[", 
                RowBox[{"[", "j", "]"}], "]"}], "]"}], ",", 
              "\[IndentingNewLine]", 
              RowBox[{"{", 
               RowBox[{"j", ",", "1", ",", 
                RowBox[{"Length", "[", 
-                RowBox[{"facet4", "[", 
+                RowBox[{"facet4Linear", "[", 
                  RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], ",",
             "\[IndentingNewLine]", 
            RowBox[{"{", 
             RowBox[{"i", ",", "1", ",", 
-             RowBox[{"Length", "[", "facet4", "]"}]}], "}"}]}], "]"}], "]"}], 
-        ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
-    "\[IndentingNewLine]", 
+             RowBox[{"Length", "[", "facet4Linear", "]"}]}], "}"}]}], "]"}], 
+         "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"Row", "@", 
     RowBox[{"{", "\[IndentingNewLine]", 
      RowBox[{
@@ -367,7 +391,9 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}], 
         ",", 
-        RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}], ",", 
+        RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}], ",", 
       "\[IndentingNewLine]", "\"\<\[Rule]\>\"", ",", "\[IndentingNewLine]", 
       RowBox[{"Graphics3D", "[", 
        RowBox[{
@@ -379,49 +405,50 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}], 
         ",", 
-        RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}]}], 
+        RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}]}], 
      "\[IndentingNewLine]", "}"}]}]}]}]], "Input",
  CellChangeTimes->{{3.751397287763875*^9, 3.751397294570816*^9}, {
-  3.751397335552702*^9, 3.751397362823227*^9}, {3.751397692850404*^9, 
-  3.7513977043603287`*^9}, {3.751397950521783*^9, 3.7513980362355127`*^9}, {
-  3.7513980922541*^9, 3.751398115732373*^9}, {3.751398152440687*^9, 
-  3.751398166095916*^9}}],
+   3.751397335552702*^9, 3.751397362823227*^9}, {3.751397692850404*^9, 
+   3.7513977043603287`*^9}, {3.751397950521783*^9, 3.7513980362355127`*^9}, {
+   3.7513980922541*^9, 3.751398115732373*^9}, {3.751398152440687*^9, 
+   3.751398166095916*^9}, {3.7513982784758997`*^9, 3.751398325044304*^9}, {
+   3.751398406198325*^9, 3.7513984187414217`*^9}, {3.75139850040914*^9, 
+   3.751398518136849*^9}, {3.75139881551676*^9, 3.7513988276988277`*^9}, {
+   3.7513989191677923`*^9, 3.751398941622415*^9}, {3.751399123197885*^9, 
+   3.751399127363182*^9}, 3.751400524439987*^9, {3.751400582920443*^9, 
+   3.751400632712902*^9}, {3.7514008289362907`*^9, 3.751400976407674*^9}, {
+   3.751401111717249*^9, 3.751401113169961*^9}, {3.751401145189878*^9, 
+   3.75140118259608*^9}, {3.751401267343133*^9, 3.7514013044349327`*^9}, 
+   3.75140569075418*^9, {3.7514057458053913`*^9, 3.751405767202239*^9}, {
+   3.751406183388028*^9, 3.7514062304978657`*^9}, {3.751406356700082*^9, 
+   3.751406447565837*^9}, {3.751406539426255*^9, 3.751406568231848*^9}, {
+   3.751406609435719*^9, 3.7514066568448267`*^9}, {3.7514066904719763`*^9, 
+   3.751406720109109*^9}}],
 
 Cell[BoxData[
  TemplateBox[{Graphics3DBox[
     Polygon3DBox[{{{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}, {{0, 0, 0}, {0, 1, 0}, {
      0, 0, 1}}, {{0, 0, 0}, {1, 0, 0}, {0, 0, 1}}, {{0, 0, 1}, {1, 0, 0}, {0, 
-     1, 0}}}], AspectRatio -> 1, Axes -> True, AxesLabel -> {
+     1, 0}}}], Axes -> True, AxesLabel -> {
       FormBox["\"x\"", TraditionalForm], 
       FormBox["\"y\"", TraditionalForm], 
-      FormBox["\"z\"", TraditionalForm]}, 
-    ImageSize -> {307.79947916666663`, Automatic}, 
-    ViewPoint -> {-0.5171751748321102, -2.4273486361972263`, 
-     2.3001105271027393`}, 
-    ViewVertical -> {-0.23502135219780712`, 0.13785872931704235`, 
-     0.9621641932446898}],"\"\[Rule]\"",Graphics3DBox[
-    Polygon3DBox[{{{0., 0., 0.}, {1.4142135623730951`, 0., 0.}, {
-     0.7071067811865476, 1.224744871391589, -1.2819751242557092`*^-16}}, {{0.,
-      0., 0.}, {0.7071067811865476, 
-     1.224744871391589, -1.2819751242557092`*^-16}, {0.7071067811865476, 
-     0.40824829046386296`, 1.1547005383792512`}}, {{0., 0., 0.}, {
-     1.4142135623730951`, 0., 0.}, {0.7071067811865476, 0.40824829046386296`, 
-     1.1547005383792512`}}, {{0.7071067811865476, 0.40824829046386296`, 
-     1.1547005383792512`}, {1.4142135623730951`, 0., 0.}, {0.7071067811865476,
-      1.224744871391589, -1.2819751242557092`*^-16}}}], AspectRatio -> 1, 
-    Axes -> True, AxesLabel -> {
+      FormBox["\"z\"", TraditionalForm]}, AspectRatio -> 1, ImagePadding -> 
+    20, ImageSize -> Small],"\"\[Rule]\"",Graphics3DBox[
+    Polygon3DBox[{{{0., 0., 0.}, {1., 0., 0.}, {0., 1., 0.}}, {{0., 0., 0.}, {
+     0., 1., 0.}, {0., 0., 1.}}, {{0., 0., 0.}, {1., 0., 0.}, {0., 0., 
+     1.}}, {{0., 0., 1.}, {1., 0., 0.}, {0., 1., 0.}}}], Axes -> True, 
+    AxesLabel -> {
       FormBox["\"x\"", TraditionalForm], 
       FormBox["\"y\"", TraditionalForm], 
-      FormBox["\"z\"", TraditionalForm]}, 
-    ImageSize -> {315.48177083333314`, Automatic}, 
-    ViewPoint -> {2.175323211049474, -0.9202504027912671, 
-     2.4230369629107837`}, 
-    ViewVertical -> {0.03067904758295409, 0.4124505473643904, 
-     1.1433321076070906`}]},
+      FormBox["\"z\"", TraditionalForm]}, AspectRatio -> 1, ImagePadding -> 
+    20, ImageSize -> Small]},
   "RowDefault"]], "Output",
- CellChangeTimes->{{3.75139795558109*^9, 3.751397968097307*^9}, {
-   3.7513980076071377`*^9, 3.751398036806678*^9}, 3.751398116319808*^9, 
-   3.751398166556335*^9}]
+ CellChangeTimes->{{3.7514057469256477`*^9, 3.7514057776247253`*^9}, 
+   3.751406158350469*^9, {3.751406363646708*^9, 3.751406371655838*^9}, 
+   3.75140657409551*^9, {3.7514066103434477`*^9, 3.7514066573059053`*^9}, 
+   3.751406721619158*^9}]
 }, Open  ]]
 },
 WindowSize->{1280, 755},
@@ -442,10 +469,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 3834, 104, 824, "Input"],
 Cell[CellGroupData[{
-Cell[4417, 128, 11152, 259, 2104, "Input"],
-Cell[15572, 389, 1865, 34, 540, "Output"]
+Cell[580, 22, 17529, 405, 3406, "Input"],
+Cell[18112, 429, 1165, 21, 328, "Output"]
 }, Open  ]]
 }
 ]
