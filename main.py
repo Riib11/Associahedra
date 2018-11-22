@@ -9,7 +9,7 @@ from K import K
 ### Parameters
 #
 
-N = 4
+N = 5
 
 #
 ### Constructions

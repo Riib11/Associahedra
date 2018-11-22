@@ -8,6 +8,7 @@
 
 from utilities import *
 from debug import *
+from copy import deepcopy
 import itertools as it
 
 from Divide import Divide
@@ -132,31 +133,40 @@ class TriangulationGraph:
     # with every other member.
     # each group is a (N - 1 - i)-dimensional facet of K
     def get_i_partitions(self, i):
-        ds_all = [] # [Divide]
-        for t in self.ts:
-            for d in t.ds:
-                if not d in ds_all: ds_all.append(d)
-
+        # set of all possible divides
         ds_all = [ Divide(v1, v2) for v1, v2 in
             it.combinations(inrange(0, self.V - 1), 2) ]
 
-        # iterate through all i-sized combinations
+        parts = list( filter(
+            lambda ts: len(ts) > 2, # filter
+            [ self.get_triangulations_with_divides(ds)
+                for ds in it.combinations(ds_all, i) ]))
+        # DEBUG
+        for ts in parts:
+            if len(ts) < 3:
+                print("[!] small parts:", ts)
+                print()
+
+        return parts
+
+        # iterate through all i-combinations of divides
         # in `ds_all`, each which represent a segement of
         # the parition of the triangulations
-        return list(filter(lambda ts: ts != [],
+        return list( filter(
+            lambda ts: len(ts) > 2, # filter
             [ self.get_triangulations_with_divides(ds)
-            for ds in it.combinations(ds_all, i) ]))
+                for ds in it.combinations(ds_all, i) ]))
 
-    # gets the set of ordered 2-facets
+    # gets the set of ordered facet2s
     # [requires] at least 2D associahedra (K3)
-    # [outputs]  [[ Triangulation ]] = [ 2-facet ]
+    # [outputs]  [[ Triangulation ]] = [ facet2 ]
     def get_facet2s(self):
         assert ( self.N >= 3 )
         i = (self.N - 1) - 2 # dim = 2
         return [ self.order_facet2(ts)
             for ts in self.get_i_partitions(i) ]
 
-    # given a 2-facet, orders the vertex
+    # given a facet2, orders the vertex
     # triangulations into a single cycle,
     # which is friendly to Mathematica's
     # Polygon function.
@@ -165,10 +175,13 @@ class TriangulationGraph:
         # must be a facet (linked 1 dimension up (i-1))
         assert ( all([ t1.is_i_linked(t2, i - 1)
             for t1, t2 in it.combinations(ts, 2) ]) )
+
+        # DEBUG
+        # if len(ts) < 3: raise Exception("small ts:", ts)
         
-        ts = ts[:]
-        # get the first triangulation
-        # that is 1-linked with t
+        ts = deepcopy(ts)
+        # get the next triangulation
+        # that is i-linked with t
         def get_next(t):
             for t_next in ts:
                 if t.is_i_linked(t_next, i):
@@ -177,13 +190,12 @@ class TriangulationGraph:
         # into a cycle
         cycle = []
         while len(ts) > 0:
-            # pick a start
+            # first, pick a start
             if len(cycle) == 0:
                 cycle.append(ts[0])
                 ts.remove(ts[0])
-            # pick a triangulation that
-            # is 1-linked with the
-            # triangulation just added
+            # subsequently, pick a triangulation that
+            # is i-linked with the triangulation just added
             else:
                 t_next = get_next(cycle[-1])
                 cycle.append(t_next)
@@ -191,7 +203,7 @@ class TriangulationGraph:
         return cycle
 
     # gets the set of facet3s, each of which
-    # is a set of ordered 2-facets.
+    # is a set of ordered facet2s.
     # [requires] at least 3D associahedra (K4)
     # [outputs] [[[ Triangulation ]]] = [ facet3 ]
     def get_facet3s(self):
@@ -204,8 +216,8 @@ class TriangulationGraph:
     # gets the same set of facet3s as `get_facet3s`
     # but in the form of a graph, in which
     # two facet3s are linked if they share a
-    # 2-facet in common. Such a link is labeled
-    # with the 2-facet
+    # facet2 in common. Such a link is labeled
+    # with the facet2
     # [requires] at least 3D associahedra (K4)
     # [outputs] Graph< [[ Triangulation ]] = facet3 >
     def get_graphed_facet3s(self):

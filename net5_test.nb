@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     19648,        471]
-NotebookOptionsPosition[     19293,        453]
-NotebookOutlinePosition[     19671,        470]
-CellTagsIndexPosition[     19628,        467]
+NotebookDataLength[     25870,        609]
+NotebookOptionsPosition[     25433,        589]
+NotebookOutlinePosition[     25812,        606]
+CellTagsIndexPosition[     25769,        603]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -289,6 +289,10 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"b1", ",", "b2", ",", "b3"}], "}"}], "=", 
          RowBox[{"Orthogonalize", "[", "basis4Proto", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{"{", 
+          RowBox[{"b1", ",", "b2", ",", "b3"}], "}"}], "]"}], ";", 
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"(*", " ", 
          RowBox[{
@@ -380,35 +384,79 @@ Cell[BoxData[
              RowBox[{"Length", "[", "facet4Linear", "]"}]}], "}"}]}], "]"}], 
          "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"Row", "@", 
-    RowBox[{"{", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"Graphics3D", "[", 
-       RowBox[{
-        RowBox[{"Polygon", "@", "object3"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"Axes", "\[Rule]", "True"}], ",", 
-        RowBox[{"AxesLabel", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}], 
-        ",", 
-        RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
-        RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}], ",", 
-      "\[IndentingNewLine]", "\"\<\[Rule]\>\"", ",", "\[IndentingNewLine]", 
-      RowBox[{"Graphics3D", "[", 
-       RowBox[{
-        RowBox[{"Polygon", "@", 
-         RowBox[{"unfold4", "[", "object4", "]"}]}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"Axes", "\[Rule]", "True"}], ",", 
-        RowBox[{"AxesLabel", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}], 
-        ",", 
-        RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
-        RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}]}], 
-     "\[IndentingNewLine]", "}"}]}]}]}]], "Input",
+   RowBox[{"(*", 
+    RowBox[{"Row", "@", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Graphics3D", "[", 
+        RowBox[{
+         RowBox[{"Polygon", "@", "object3"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}],
+          ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+         
+         RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", "\"\<\[Rule]\>\"", ",", "\[IndentingNewLine]", 
+       RowBox[{"Graphics3D", "[", 
+        RowBox[{
+         RowBox[{"Polygon", "@", 
+          RowBox[{"unfold4", "[", "object4", "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}],
+          ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+         
+         RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}]}], 
+      "\[IndentingNewLine]", "}"}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"Polygon", "@", 
+      RowBox[{"unfold4", "[", 
+       RowBox[{"facetsTransformed", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}], 
+     ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Row", "@", 
+     RowBox[{"Array", "[", 
+      RowBox[{
+       RowBox[{"Function", "[", 
+        RowBox[{"i", ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{
+           RowBox[{"Polygon", "@", 
+            RowBox[{"unfold4", "[", 
+             RowBox[{"facetsTransformed", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+           RowBox[{"AxesLabel", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], 
+             "}"}]}], ",", 
+           RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"ImagePadding", "\[Rule]", "20"}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Length", "[", "facetsTransformed", "]"}]}], "]"}]}], 
+    "*)"}]}]}]], "Input",
  CellChangeTimes->{{3.751397287763875*^9, 3.751397294570816*^9}, {
    3.751397335552702*^9, 3.751397362823227*^9}, {3.751397692850404*^9, 
    3.7513977043603287`*^9}, {3.751397950521783*^9, 3.7513980362355127`*^9}, {
@@ -425,33 +473,121 @@ Cell[BoxData[
    3.751406183388028*^9, 3.7514062304978657`*^9}, {3.751406356700082*^9, 
    3.751406447565837*^9}, {3.751406539426255*^9, 3.751406568231848*^9}, {
    3.751406609435719*^9, 3.7514066568448267`*^9}, {3.7514066904719763`*^9, 
-   3.751406720109109*^9}}],
+   3.751406720109109*^9}, {3.751827743191204*^9, 3.751827868881179*^9}, {
+   3.751828101235044*^9, 3.751828126829616*^9}, {3.7518281669338818`*^9, 
+   3.7518281738854103`*^9}, {3.751828212118929*^9, 3.7518282236784363`*^9}, {
+   3.751828291865136*^9, 3.7518283482718153`*^9}}],
 
 Cell[BoxData[
- TemplateBox[{Graphics3DBox[
-    Polygon3DBox[{{{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}, {{0, 0, 0}, {0, 1, 0}, {
-     0, 0, 1}}, {{0, 0, 0}, {1, 0, 0}, {0, 0, 1}}, {{0, 0, 1}, {1, 0, 0}, {0, 
-     1, 0}}}], Axes -> True, AxesLabel -> {
-      FormBox["\"x\"", TraditionalForm], 
-      FormBox["\"y\"", TraditionalForm], 
-      FormBox["\"z\"", TraditionalForm]}, AspectRatio -> 1, ImagePadding -> 
-    20, ImageSize -> Small],"\"\[Rule]\"",Graphics3DBox[
-    Polygon3DBox[{{{0., 0., 0.}, {1., 0., 0.}, {0., 1., 0.}}, {{0., 0., 0.}, {
-     0., 1., 0.}, {0., 0., 1.}}, {{0., 0., 0.}, {1., 0., 0.}, {0., 0., 
-     1.}}, {{0., 0., 1.}, {1., 0., 0.}, {0., 1., 0.}}}], Axes -> True, 
-    AxesLabel -> {
-      FormBox["\"x\"", TraditionalForm], 
-      FormBox["\"y\"", TraditionalForm], 
-      FormBox["\"z\"", TraditionalForm]}, AspectRatio -> 1, ImagePadding -> 
-    20, ImageSize -> Small]},
-  "RowDefault"]], "Output",
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.243421351622077`"}], ",", 
+     RowBox[{"-", "0.27149807367063683`"}], ",", 
+     RowBox[{"-", "0.3308807964358064`"}], ",", "0.8703750571550297`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.5218005188571411`"}], ",", 
+     RowBox[{"-", "0.555373624804092`"}], ",", "0.6432038768752547`", ",", 
+     RowBox[{"-", "0.07465338682889233`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.501800356145985`"}], ",", 
+     RowBox[{"-", "0.24958641250985444`"}], ",", 
+     RowBox[{"-", "0.677824136639834`"}], ",", 
+     RowBox[{"-", "0.4758754722095764`"}]}], "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.751828174611084*^9}],
+
+Cell[BoxData[
+ Graphics3DBox[
+  Polygon3DBox[{{{0., 0., 0.}, {0.17016911900722104`, -2.740093076210185*^-18,
+     5.659124696762365*^-18}, {-0.2785465681022047, 0.23536526008338848`, 
+    3.985235144273256*^-18}, {-0.33642723390456075`, 0.25778579169510113`, 
+    0.02162895802784616}, {-0.31345051008779845`, 0.17779666043058945`, 
+    0.0258813794040071}}, {{0., 0., 0.}, {
+    0.17016911900722104`, -2.740093076210185*^-18, 5.659124696762365*^-18}, {
+    0., 0., 0.}, {0., 0., 0.}}, {{0., 0., 0.}, {-0.31345051008779845`, 
+    0.17779666043058945`, 0.0258813794040071}, {0., 0., 0.}, {0., 0., 0.}, {
+    0., 0., 0.}}, {{0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.}, {
+    0., 0., 0.}}, {{0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.}}, {{
+    0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.}, {0., 0., 
+    0.}}, {{-0.31345051008779845`, 0.17779666043058945`, 
+    0.0258813794040071}, {-0.33642723390456075`, 0.25778579169510113`, 
+    0.02162895802784616}, {0., 0., 0.}, {0., 0., 0.}, {0., 0., 
+    0.}}, {{-0.33642723390456075`, 0.25778579169510113`, 
+    0.02162895802784616}, {-0.2785465681022047, 0.23536526008338848`, 
+    3.985235144273256*^-18}, {0., 0., 0.}, {0., 0., 0.}}, {{
+    0.17016911900722104`, -2.740093076210185*^-18, 
+    5.659124696762365*^-18}, {-0.2785465681022047, 0.23536526008338848`, 
+    3.985235144273256*^-18}, {0., 0., 0.}, {0., 0., 0.}, {0., 0., 0.}}, {{0., 
+    0., 0.}, {0.17016911900722104`, -2.740093076210185*^-18, 
+    5.659124696762365*^-18}}, {{0., 0., 0.}, {-0.31345051008779845`, 
+    0.17779666043058945`, 0.0258813794040071}}, {{-0.31345051008779845`, 
+    0.17779666043058945`, 0.0258813794040071}, {-0.33642723390456075`, 
+    0.25778579169510113`, 0.02162895802784616}}, {{-0.33642723390456075`, 
+    0.25778579169510113`, 0.02162895802784616}, {-0.2785465681022047, 
+    0.23536526008338848`, 3.985235144273256*^-18}}, {{
+    0.17016911900722104`, -2.740093076210185*^-18, 
+    5.659124696762365*^-18}, {-0.2785465681022047, 0.23536526008338848`, 
+    3.985235144273256*^-18}}, {{0., 0., 0.}, {0., 0., 0.}}, {{0., 0., 0.}, {
+    0., 0., 0.}}, {{0.17016911900722104`, -2.740093076210185*^-18, 
+    5.659124696762365*^-18}, {0., 0., 0.}}, {{0., 0., 0.}, {0., 0., 0.}}, {{
+    0., 0., 0.}, {0., 0., 0.}}, {{-0.31345051008779845`, 0.17779666043058945`,
+     0.0258813794040071}, {0., 0., 0.}}, {{0., 0., 0.}, {0., 0., 0.}}, {{0., 
+    0., 0.}, {0., 0., 0.}}, {{0., 0., 0.}, {0., 0., 0.}}, {{0., 0., 0.}, {0., 
+    0., 0.}}, {{0., 0., 0.}, {0., 0., 0.}}, {{0., 0., 0.}, {0., 0., 0.}}, {{
+    0., 0., 0.}, {0., 0., 0.}}, {{0., 0., 0.}, {0., 0., 
+    0.}}, {{-0.33642723390456075`, 0.25778579169510113`, 
+    0.02162895802784616}, {0., 0., 0.}}, {{-0.2785465681022047, 
+    0.23536526008338848`, 3.985235144273256*^-18}, {0., 0., 0.}}}],
+  AspectRatio->1,
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm], 
+    FormBox["\"z\"", TraditionalForm]},
+  ImagePadding->20,
+  ImageSize->Small]], "Output",
  CellChangeTimes->{{3.7514057469256477`*^9, 3.7514057776247253`*^9}, 
    3.751406158350469*^9, {3.751406363646708*^9, 3.751406371655838*^9}, 
    3.75140657409551*^9, {3.7514066103434477`*^9, 3.7514066573059053`*^9}, 
-   3.751406721619158*^9}]
-}, Open  ]]
+   3.751406721619158*^9, 3.7518276511275806`*^9, {3.751827762510728*^9, 
+   3.751827788758925*^9}, 3.751827873356296*^9, {3.751828104833805*^9, 
+   3.751828127184285*^9}, 3.751828174693399*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"facetsTransformed", ":", " ", 
+    RowBox[{"[", 
+     RowBox[{"[", 
+      RowBox[{"[", " ", "vector4", " ", "]"}], "]"}], "]"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{"facetsTransformed", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"object4", ":", " ", 
+     RowBox[{"[", 
+      RowBox[{"[", " ", "vector4", " ", "]"}], "]"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"object4", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7518275677825603`*^9, 3.751827727303423*^9}}]
 },
-WindowSize->{1280, 755},
+WindowSize->{1680, 1005},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 Magnification->1.5,
 FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
@@ -470,9 +606,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 17529, 405, 3406, "Input"],
-Cell[18112, 429, 1165, 21, 294, "Output"]
-}, Open  ]]
+Cell[580, 22, 19725, 456, 3747, "Input"],
+Cell[20308, 480, 761, 20, 36, "Print"],
+Cell[21072, 502, 3434, 55, 292, "Output"]
+}, Open  ]],
+Cell[24521, 560, 908, 27, 142, "Input"]
 }
 ]
 *)
