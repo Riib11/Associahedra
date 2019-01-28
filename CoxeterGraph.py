@@ -9,6 +9,7 @@
 from utilities import *
 import itertools as it
 
+
 #
 ### Coxeter Graph
 #

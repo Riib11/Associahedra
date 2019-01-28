@@ -1,15 +1,14 @@
-from debug import *
-from utilities import *
-from mathematica import *
+from debug         import *
+from utilities     import *
+from mathematica   import to_table
 from Triangulation import Triangulation, TriangulationGraph
-
-from K import K
+from K             import K
 
 #
 ### Parameters
 #
 
-N = 5
+N = 4
 
 #
 ### Constructions

@@ -18,9 +18,8 @@ from Graph import Graph
 ### Triangulation
 #
 class Triangulation:
-    def __init__(self, N, ds, polygon, coxeter_graph, 
-        get_divide_index # Divide -> Index
-    ):
+    # get_divide_index : Divide -> Index
+    def __init__(self, N, ds, polygon, coxeter_graph, get_divide_index):
         assert ( polygon.is_valid_triangulation(ds) )
 
         self.N = N
@@ -80,8 +79,7 @@ class Triangulation:
 
     @classmethod
     def embed_recursive(cls, x):
-        assert ( isinstance(x, list)
-            or isinstance(x, Triangulation) )
+        assert ( isinstance(x, list) or isinstance(x, Triangulation) )
         if isinstance(x, list):
             return list(map(cls.embed_recursive, x))
         else:
@@ -124,8 +122,7 @@ class TriangulationGraph:
     # get all of the triangulations that
     # have all of ds divides
     def get_triangulations_with_divides(self, ds):
-        return [ t for t in self.ts
-            if t.has_divides(ds) ]
+        return [ t for t in self.ts if t.has_divides(ds) ]
 
     # get list of groups of triangulations,
     # where each group is of triangulations
@@ -141,6 +138,7 @@ class TriangulationGraph:
             lambda ts: len(ts) > 2, # filter
             [ self.get_triangulations_with_divides(ds)
                 for ds in it.combinations(ds_all, i) ]))
+
         # DEBUG
         for ts in parts:
             if len(ts) < 3:
@@ -150,21 +148,20 @@ class TriangulationGraph:
         return parts
 
         # iterate through all i-combinations of divides
-        # in `ds_all`, each which represent a segement of
-        # the parition of the triangulations
+        # in `ds_all`, each which represent a segment of
+        # the partition of the triangulations
         return list( filter(
             lambda ts: len(ts) > 2, # filter
             [ self.get_triangulations_with_divides(ds)
                 for ds in it.combinations(ds_all, i) ]))
 
     # gets the set of ordered facet2s
-    # [requires] at least 2D associahedra (K3)
-    # [outputs]  [[ Triangulation ]] = [ facet2 ]
+    # {requires} at least 2D associahedra (K3)
+    # {outputs}  [[ Triangulation ]] = [ facet2 ]
     def get_facet2s(self):
         assert ( self.N >= 3 )
         i = (self.N - 1) - 2 # dim = 2
-        return [ self.order_facet2(ts)
-            for ts in self.get_i_partitions(i) ]
+        return [ self.order_facet2(ts) for ts in self.get_i_partitions(i) ]
 
     # given a facet2, orders the vertex
     # triangulations into a single cycle,
@@ -204,8 +201,8 @@ class TriangulationGraph:
 
     # gets the set of facet3s, each of which
     # is a set of ordered facet2s.
-    # [requires] at least 3D associahedra (K4)
-    # [outputs] [[[ Triangulation ]]] = [ facet3 ]
+    # {requires} at least 3D associahedra (K4)
+    # {outputs} [[[ Triangulation ]]] == [ facet3 ]
     def get_facet3s(self):
         assert ( self.N >= 4 )
         i = (self.N - 1) - 3 # dim = 3
@@ -218,8 +215,8 @@ class TriangulationGraph:
     # two facet3s are linked if they share a
     # facet2 in common. Such a link is labeled
     # with the facet2
-    # [requires] at least 3D associahedra (K4)
-    # [outputs] Graph< [[ Triangulation ]] = facet3 >
+    # {requires} at least 3D associahedra (K4)
+    # {outputs} Graph< [[ Triangulation ]] == facet3 >
     def get_graphed_facet3s(self):
         assert ( self.N >= 4 )
         # TODO
